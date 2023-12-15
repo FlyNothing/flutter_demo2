@@ -1,0 +1,39 @@
+buildscript {
+    ext.kotlin_version = '1.6.10'
+    repositories {
+        maven {url 'https://maven.aliyun.com/nexus/content/repositories/public'}
+        maven {url 'https://maven.aliyun.com/nexus/content/repositories/jcenter'}
+        maven {url 'https://maven.aliyun.com/nexus/content/repositories/google'}
+        maven {url 'https://maven.aliyun.com/nexus/content/repositories/android'}
+        maven {url 'https://maven.aliyun.com/nexus/content/repositories/gradle-plugin'}
+        maven {url 'https://maven.aliyun.com/repository/central'}
+    }
+
+    dependencies {
+        classpath 'com.android.tools.build:gradle:7.2.1'
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+    }
+}
+
+allprojects {
+    repositories {
+        maven {url 'https://maven.aliyun.com/nexus/content/repositories/public'}
+        maven {url 'https://maven.aliyun.com/nexus/content/repositories/jcenter'}
+        maven {url 'https://maven.aliyun.com/nexus/content/repositories/google'}
+        maven {url 'https://maven.aliyun.com/nexus/content/repositories/android'}
+        maven {url 'https://maven.aliyun.com/nexus/content/repositories/gradle-plugin'}
+        maven {url 'https://maven.aliyun.com/repository/central'}
+    }
+}
+
+rootProject.buildDir = '../build'
+subprojects {
+    project.buildDir = "${rootProject.buildDir}/${project.name}"
+}
+subprojects {
+    project.evaluationDependsOn(':app')
+}
+
+tasks.register("clean", Delete) {
+    delete rootProject.buildDir
+}
