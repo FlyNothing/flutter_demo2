@@ -1,10 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_demo2/binding.dart';
-import 'package:flutter_demo2/home/view/count_view.dart';
+import 'package:flutter_demo2/common/global/global_binding.dart';
+import 'package:flutter_demo2/home/home_view.dart';
 import 'package:get/get.dart';
-
-import 'home/controller/count_controller.dart';
-import 'home/view/count1_view.dart';
 
 void main() {
   runApp(GetMaterialApp(
@@ -13,32 +10,12 @@ void main() {
     initialBinding: GlobalBinding(),
     // initialRoute: Routes.SPLASH,
     theme: ThemeData(
-      primarySwatch: Colors.blue,
+      primarySwatch: Colors.indigo,
       brightness: Brightness.light,
     ),
     defaultTransition: Transition.fade,
     // initialBinding: SplashBinding(),
     // getPages: AppPages.pages,
-    home: Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        TextButton(
-          onPressed: () => Get.to(
-            const CountView(),
-            // 自定义binding
-            binding: BindingsBuilder(() => Get.put<CountController>(CountController())),
-          ),
-          child: const Text("CountView"),
-        ),
-        TextButton(
-          onPressed: () => Get.to(
-            const Count1View(),
-            // 自定义binding
-            binding: BindingsBuilder(() => Get.put<Count1Controller>(Count1Controller())),
-          ),
-          child: const Text("Count1View"),
-        ),
-      ],
-    ),
+    home: const HomeView(),
   ));
 }
