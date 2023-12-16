@@ -4,7 +4,7 @@ import 'package:get/get.dart';
 class CircularProgressIndicatorController extends GetxController with GetSingleTickerProviderStateMixin {
   late AnimationController controller;
   late Animation<Color?> colorAnimation;
-  final int _durationSeconds = 10;
+  final int _durationSeconds = 5;
 
   @override
   void onInit() {

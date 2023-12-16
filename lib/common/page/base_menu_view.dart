@@ -23,7 +23,7 @@ class BaseMenuView extends StatelessWidget {
         leading: Text(_baseMenuList[index].name),
         trailing: StandardIconButton(
           Icons.navigate_next,
-          () => Get.to(_baseMenuList[index].page),
+          () => Get.to(_baseMenuList[index].page, binding: _baseMenuList[index].binding, preventDuplicates: false),
         ),
       ),
       itemCount: _baseMenuList.length,
