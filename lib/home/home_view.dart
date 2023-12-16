@@ -14,9 +14,7 @@ class HomeView extends StatelessWidget {
         bottomNavigationBar: BottomNavigationBar(
           items: bottomBarList,
           currentIndex: controller.barIndex,
-          onTap: (int index) {
-            controller.setIndex(index);
-          },
+          onTap: (int index) => controller.setIndex(index),
           type: BottomNavigationBarType.fixed,
         ),
         body: bottomBarDataList[controller.barIndex]['page'],
