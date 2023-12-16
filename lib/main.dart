@@ -6,8 +6,15 @@ import 'package:get/get.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
-  runApp(
-    ScreenUtilInit(
+  runApp(const App());
+}
+
+class App extends StatelessWidget {
+  const App({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return ScreenUtilInit(
       designSize: const Size(390, 840), // 默认Size(360, 690)
       splitScreenMode: true,
       builder: (context, child) => GetMaterialApp(
@@ -35,6 +42,6 @@ void main() {
         // getPages: AppPages.pages,
         home: const HomeView(),
       ),
-    ),
-  );
+    );
+  }
 }

@@ -27,7 +27,7 @@ apply from: "$flutterRoot/packages/flutter_tools/gradle/flutter.gradle"
 
 android {
     namespace "com.demo.young.flutter_demo2"
-    compileSdkVersion flutter.compileSdkVersion
+    compileSdkVersion 34
     ndkVersion flutter.ndkVersion
 
     compileOptions {
@@ -40,10 +40,18 @@ android {
         applicationId "com.demo.young.flutter_demo2"
         // You can update the following values to match your application needs.
         // For more information, see: https://docs.flutter.dev/deployment/android#reviewing-the-gradle-build-configuration.
-        minSdkVersion flutter.minSdkVersion
+        minSdkVersion 21
         targetSdkVersion flutter.targetSdkVersion
         versionCode flutterVersionCode.toInteger()
         versionName flutterVersionName
+
+        manifestPlaceholders = [
+            JPUSH_PKGNAME : applicationId,
+            JPUSH_APPKEY : "xxxxxxxxxxxxxxxxxxxxxxxx", // JPush注册的包名对应的Appkey.
+            JPUSH_CHANNEL : "developer-default", // 暂时填写默认值即可.
+            appAuthRedirectScheme: "io.flutter.app", 
+            applicationName: "io.flutter.app.FlutterMultiDexApplication"
+        ]         
     }
 
     buildTypes {
