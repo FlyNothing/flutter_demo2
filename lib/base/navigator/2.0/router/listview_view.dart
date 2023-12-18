@@ -6,7 +6,7 @@ List<String> fruits = ["西瓜", "草莓", "苹果", "香蕉", "梨子", "桃子
 
 class ListViewView extends StatelessWidget {
   static const String valueKey = "/list";
-  const ListViewView({Key? key}) : super(key: key);
+  const ListViewView({super.key});
 
   @override
   Widget build(BuildContext context) {

@@ -5,7 +5,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 /// showModalBottomSheet和showBottomSheet
 class BottomSheetView extends StatelessWidget {
-  const BottomSheetView({Key? key}) : super(key: key);
+  const BottomSheetView({super.key});
 
   @override
   Widget build(BuildContext context) {

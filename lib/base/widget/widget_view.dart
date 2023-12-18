@@ -5,7 +5,7 @@ import 'package:flutter_demo2/common/util/text_style.dart';
 /// 测试State中获取Widget属性
 class WidgetView extends StatelessWidget {
   final String finalName = "widget-demo";
-  const WidgetView({Key? key}) : super(key: key);
+  const WidgetView({super.key});
 
   @override
   Widget build(BuildContext context) {

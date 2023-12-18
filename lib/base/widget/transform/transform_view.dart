@@ -5,7 +5,7 @@ import 'package:flutter_demo2/common/util/text_style.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class TransformView extends StatelessWidget {
-  const TransformView({Key? key}) : super(key: key);
+  const TransformView({super.key});
 
   @override
   Widget build(BuildContext context) {

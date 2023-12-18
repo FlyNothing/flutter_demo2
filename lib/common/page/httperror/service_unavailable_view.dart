@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_demo2/common/util/text_style.dart';
 
 class HttpServiceUnavailableView extends StatelessWidget {
-  const HttpServiceUnavailableView({Key? key}) : super(key: key);
+  const HttpServiceUnavailableView({super.key});
   static const String routeName = "/service-unavailable";
 
   @override

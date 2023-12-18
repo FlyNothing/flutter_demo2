@@ -6,7 +6,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 
 class CircularProgressIndicator2View extends GetView<CircularProgressIndicator2Controller> {
-  const CircularProgressIndicator2View({Key? key}) : super(key: key);
+  const CircularProgressIndicator2View({super.key});
 
   @override
   Widget build(BuildContext context) {

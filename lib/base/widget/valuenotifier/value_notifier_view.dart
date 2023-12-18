@@ -5,7 +5,7 @@ import 'package:flutter_demo2/common/util/standard_widget.dart';
 import 'package:get/get.dart';
 
 class ValueNotifierView extends GetView<ValueNotifierController> {
-  const ValueNotifierView({Key? key}) : super(key: key);
+  const ValueNotifierView({super.key});
 
   @override
   Widget build(BuildContext context) {

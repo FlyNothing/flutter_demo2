@@ -5,7 +5,7 @@ import 'package:flutter_demo2/common/util/text_style.dart';
 
 class Router2View extends StatelessWidget {
   static const String routeName = "/router2-page";
-  const Router2View({Key? key}) : super(key: key);
+  const Router2View({super.key});
 
   @override
   Widget build(BuildContext context) {

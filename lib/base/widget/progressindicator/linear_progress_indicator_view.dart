@@ -6,7 +6,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 
 class LinearProgressIndicatorView extends GetView<LinearProgressIndicatorController> {
-  const LinearProgressIndicatorView({Key? key}) : super(key: key);
+  const LinearProgressIndicatorView({super.key});
 
   @override
   Widget build(BuildContext context) {

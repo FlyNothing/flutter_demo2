@@ -4,7 +4,7 @@ import 'package:flutter_demo2/base/navigator/2.0/router/listitem_route_informati
 import 'package:flutter_demo2/base/navigator/2.0/router/listitem_router_delegate.dart';
 
 class ListitemNavigatorRouterApp extends StatelessWidget {
-  const ListitemNavigatorRouterApp({Key? key}) : super(key: key);
+  const ListitemNavigatorRouterApp({super.key});
 
   @override
   Widget build(BuildContext context) {

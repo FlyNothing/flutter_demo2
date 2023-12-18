@@ -6,7 +6,7 @@ import 'package:flutter_demo2/common/util/text_style.dart';
 /// OriginPage结合RouterView一起，实现参数通过Route的Settings传递
 class RouterView extends StatelessWidget {
   static const String routeName = "/router-page";
-  const RouterView({Key? key}) : super(key: key);
+  const RouterView({super.key});
 
   @override
   Widget build(BuildContext context) {

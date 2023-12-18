@@ -3,7 +3,7 @@ import 'package:flutter_demo2/base/navigator/2.0/navigator/item_view.dart';
 import 'package:flutter_demo2/base/navigator/2.0/navigator/listview_view.dart';
 
 class ListitemNavigatorApp extends StatefulWidget {
-  const ListitemNavigatorApp({Key? key}) : super(key: key);
+  const ListitemNavigatorApp({super.key});
   @override
   State<StatefulWidget> createState() => _ListitemNavigatorAppState();
 }

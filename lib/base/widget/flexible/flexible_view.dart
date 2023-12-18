@@ -4,7 +4,7 @@ import 'package:flutter_demo2/common/util/text_style.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class FlexibleView extends StatelessWidget {
-  FlexibleView({Key? key}) : super(key: key);
+  FlexibleView({super.key});
   final List<int> _flexList31 = [1, 2, 2];
   final List<int> _flexList32 = [2, 3, 5];
   final List<int> _flexList41 = [1, 1, 1, 2];
