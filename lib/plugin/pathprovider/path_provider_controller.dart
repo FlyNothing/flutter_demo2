@@ -30,32 +30,27 @@ class PathProviderController extends GetxController {
 
   Future<void> showDirectorys() async {
     Map<String, String> dirMap = await getDirectorys();
-    showModalBottomSheet(
-      context: Get.context!,
-      builder: (context) {
-        return Container(
-          height: 400.h,
-          color: Colors.white,
-          child: Column(
-            children: dirMap.entries
-                .map(
-                  (e) => Padding(
-                    padding: EdgeInsets.symmetric(vertical: 10.h),
-                    child: RichText(
-                      text: TextSpan(
-                        children: [
-                          TextSpan(text: e.key, style: size16W600()),
-                          TextSpan(text: e.value, style: size14W400()),
-                        ],
-                      ),
-                    ),
+    Get.bottomSheet(Container(
+      height: 400.h,
+      color: Colors.white,
+      child: Column(
+        children: dirMap.entries
+            .map(
+              (e) => Padding(
+                padding: EdgeInsets.symmetric(vertical: 10.h),
+                child: RichText(
+                  text: TextSpan(
+                    children: [
+                      TextSpan(text: e.key, style: size16W600()),
+                      TextSpan(text: e.value, style: size14W400()),
+                    ],
                   ),
-                )
-                .toList(),
-          ),
-        );
-      },
-    );
+                ),
+              ),
+            )
+            .toList(),
+      ),
+    ));
   }
 
   Future<Map<String, String>> getDirectorys() async {

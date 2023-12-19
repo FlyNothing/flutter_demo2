@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_demo2/common/util/standard_widget.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get/get.dart';
 
 /// showModalBottomSheet和showBottomSheet
 class BottomSheetView extends StatelessWidget {
@@ -23,19 +24,28 @@ class BottomSheetView extends StatelessWidget {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
-          StandardTextButton("showBottomSheet", () {
-            showBottomSheet(
+          StandardTextButton(
+            "showBottomSheet",
+            () => showBottomSheet(
               context: context,
               builder: (context) => _getBottomSheet(),
-            );
-          }),
-          StandardTextButton("showModalBottomSheet", () {
-            showModalBottomSheet(
+            ),
+          ),
+          StandardTextButton(
+            "showModalBottomSheet",
+            () => showModalBottomSheet(
               barrierColor: Colors.black54,
               context: context,
               builder: (context) => _getBottomSheet(),
-            );
-          }),
+            ),
+          ),
+          StandardTextButton(
+            "Get.bottomSheet",
+            () => Get.bottomSheet(
+              _getBottomSheet(),
+              barrierColor: Colors.black54,
+            ),
+          ),
         ],
       ),
     );

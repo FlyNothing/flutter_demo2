@@ -35,18 +35,15 @@ class ValueNotifierView extends GetView<ValueNotifierController> {
     return StandardIconButton(
       Icons.navigate_next,
       () {
-        Future<String?> res = showDialog(
-          context: context,
-          builder: (context) => AlertDialog(
-            backgroundColor: Colors.white,
-            content: StandardTextField(controller.nameController, hintText: "请输入姓名"),
-            actions: [
-              StandardTextButton("取消", () => Get.back()),
-              StandardTextButton("确认", () => Get.back(result: controller.nameController.text)),
-            ],
-            actionsAlignment: MainAxisAlignment.center,
-          ),
-        );
+        Future<String?> res = Get.dialog(AlertDialog(
+          backgroundColor: Colors.white,
+          content: StandardTextField(controller.nameController, hintText: "请输入姓名"),
+          actions: [
+            StandardTextButton("取消", () => Get.back()),
+            StandardTextButton("确认", () => Get.back(result: controller.nameController.text)),
+          ],
+          actionsAlignment: MainAxisAlignment.center,
+        ));
         res.then((value) => controller.nameNotifier.value = value ?? "");
       },
     );
@@ -56,9 +53,8 @@ class ValueNotifierView extends GetView<ValueNotifierController> {
     return StandardIconButton(
       Icons.navigate_next,
       () {
-        Future<int?> res = showDialog(
-          context: context,
-          builder: (context) => AlertDialog(
+        Future<int?> res = Get.dialog(
+          AlertDialog(
             backgroundColor: Colors.white,
             content: StandardTextField(controller.ageController, hintText: "年龄"),
             actions: [

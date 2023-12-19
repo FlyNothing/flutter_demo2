@@ -72,22 +72,17 @@ class ScreenshotView extends GetView<ScreenshotGetxController> {
   }
 
   void _showDialog(BuildContext context, Uint8List? data) {
-    showDialog(
-      context: context,
-      builder: (context) {
-        return Dialog(
-          insetPadding: EdgeInsets.zero,
-          child: data == null
-              ? Container(
-                  height: 0.6.sh,
-                  width: double.infinity,
-                  color: Colors.white,
-                  alignment: Alignment.center,
-                  child: const Text("未抓取到截图"),
-                )
-              : Image.memory(data),
-        );
-      },
-    );
+    Get.dialog(Dialog(
+      insetPadding: EdgeInsets.zero,
+      child: data == null
+          ? Container(
+              height: 0.6.sh,
+              width: double.infinity,
+              color: Colors.white,
+              alignment: Alignment.center,
+              child: const Text("未抓取到截图"),
+            )
+          : Image.memory(data),
+    ));
   }
 }

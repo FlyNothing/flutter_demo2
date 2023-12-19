@@ -129,9 +129,8 @@ class ProviderOrderOverviewView extends StatelessWidget {
     TextEditingController? amountController = TextEditingController();
     int type = 0;
     return StandardTextButton("新增", () {
-      Future<OrderRecordInfo?> res = showDialog(
-        context: context,
-        builder: (context) => AlertDialog(
+      Future<OrderRecordInfo?> res = Get.dialog(
+        AlertDialog(
           backgroundColor: Colors.white,
           content: SizedBox(
             height: 0.2.sh,

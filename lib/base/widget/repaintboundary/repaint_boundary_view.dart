@@ -8,6 +8,7 @@ import 'package:flutter/rendering.dart';
 import 'package:flutter_demo2/common/util/standard_widget.dart';
 import 'package:flutter_demo2/common/util/text_style.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get/get.dart';
 
 class RepaintBoundaryView extends StatelessWidget {
   RepaintBoundaryView({super.key});
@@ -95,17 +96,8 @@ class RepaintBoundaryView extends StatelessWidget {
       ByteData? byteData = await image.toByteData(format: ui.ImageByteFormat.png);
       Uint8List? imageBytes = byteData?.buffer.asUint8List();
       if (imageBytes != null) {
-        Image image = Image.memory(
-          imageBytes,
-        );
-        showDialog(
-          context: context,
-          builder: (context) {
-            return Dialog(
-              child: image,
-            );
-          },
-        );
+        Image image = Image.memory(imageBytes);
+        Get.dialog(Dialog(child: image));
       }
     }
   }

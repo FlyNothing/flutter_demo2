@@ -64,9 +64,8 @@ class FloorView extends GetView<FloorController> {
 
   Widget _addCustomerButton() {
     return StandardTextButton("新增", () {
-      Future<String?> res = showDialog(
-        context: Get.context!,
-        builder: (context) => AlertDialog(
+      Future<String?> res = Get.dialog(
+        AlertDialog(
           backgroundColor: Colors.white,
           content: SizedBox(
             height: 0.25.sh,
