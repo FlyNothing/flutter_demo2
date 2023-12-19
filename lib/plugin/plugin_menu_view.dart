@@ -1,28 +1,45 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_demo2/common/util/global_widget.dart';
 import 'package:flutter_demo2/common/util/standard_widget.dart';
 import 'package:flutter_demo2/common/util/text_style.dart';
 import 'package:flutter_demo2/plugin/plugin_menu_config.dart';
-import 'package:flutter_demo2/plugin/plugin_menu_sort_config.dart';
+import 'package:flutter_demo2/plugin/plugin_menu_controller.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get/get.dart';
 
-class PluginMenuView extends StatefulWidget {
+class PluginMenuView extends StatelessWidget {
   const PluginMenuView({super.key});
+  final Color color = Colors.white;
 
-  @override
-  State<StatefulWidget> createState() => _PluginMenuViewState();
-}
-
-class _PluginMenuViewState extends State<PluginMenuView> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: appBarStandard(
-        centerTitle: false,
-        title: '扩展插件',
-        actions: pluginMenuSortList.map((vo) => _getSortContainer(vo, () => _selectToSort(vo))).toList(),
+    return GetBuilder<PluginMenuController>(
+      init: PluginMenuController(),
+      builder: (controller) => Scaffold(
+        appBar: _getBar((index) => controller.switchOrder(index)),
+        body: _getBody(),
       ),
-      body: _getBody(),
+    );
+  }
+
+  PreferredSizeWidget _getBar(Function(int) onTap) {
+    return appBarStandard(
+      centerTitle: false,
+      title: '扩展插件',
+      actions: List.generate(
+        pluginMenuSortList.length,
+        (index) => GestureDetector(
+          onTap: () => onTap.call(index),
+          child: Container(
+            padding: EdgeInsets.only(right: 10.w),
+            child: Row(
+              children: [
+                Text(pluginMenuSortList[index].name, style: pluginMenuSortList[index].selected ? size14W600(color: color) : size14W400(color: color)),
+                if (pluginMenuSortList[index].selected) Icon(pluginMenuSortList[index].asc ? Icons.keyboard_arrow_up : Icons.keyboard_arrow_down, color: color),
+              ],
+            ),
+          ),
+        ),
+      ),
     );
   }
 
@@ -32,45 +49,10 @@ class _PluginMenuViewState extends State<PluginMenuView> {
         leading: Text("${pluginMenuList[index].code}\n${pluginMenuList[index].name}"),
         trailing: StandardIconButton(
           Icons.navigate_next,
-          () => Navigator.push(context, MaterialPageRoute(builder: (context) => pluginMenuList[index].page)),
+          () => Get.to(pluginMenuList[index].page, binding: pluginMenuList[index].binding, preventDuplicates: false),
         ),
       ),
       itemCount: pluginMenuList.length,
     );
-  }
-
-  Widget _getSortContainer(PluginMenuSortVO vo, Function()? onTap) {
-    Color color = Colors.white;
-    return GestureDetector(
-      onTap: onTap,
-      child: Container(
-        padding: EdgeInsets.only(right: 10.w),
-        child: Row(
-          children: [
-            Text(vo.name, style: vo.selected ? size14W600(color: color) : size14W400(color: color)),
-            if (vo.selected) Icon(vo.asc ? Icons.keyboard_arrow_up : Icons.keyboard_arrow_down, color: color),
-          ],
-        ),
-      ),
-    );
-  }
-
-  _selectToSort(PluginMenuSortVO e) {
-    for (PluginMenuSortVO vo in pluginMenuSortList) {
-      if (e.id == vo.id) {
-        if (e.selected) {
-          e.asc = !e.asc;
-        } else {
-          e.selected = true;
-          e.asc = true;
-        }
-      } else {
-        vo.selected = false;
-      }
-      if (vo.selected) {
-        vo.sortFun(e.asc ? 1 : -1);
-      }
-    }
-    setState(() {});
   }
 }

@@ -1,30 +1,15 @@
 import 'dart:io';
 
 import 'package:flutter/material.dart';
-import 'package:flutter_demo2/common/util/global_widget.dart';
-import 'package:flutter_easyloading/flutter_easyloading.dart';
+import 'package:flutter_demo2/common/util/standard_widget.dart';
+import 'package:flutter_demo2/plugin/qrcodescanner/qr_code_scanner_controller.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get/get.dart';
 import 'package:qr_code_scanner/qr_code_scanner.dart';
 
-class QRCodeScannerPage extends StatefulWidget {
-  const QRCodeScannerPage({Key? key}) : super(key: key);
-  @override
-  State<StatefulWidget> createState() => _QRCodeScannerPageState();
-}
-
-class _QRCodeScannerPageState extends State<QRCodeScannerPage> {
-  QRViewController? _controller;
-  Barcode? _barcode;
-  final GlobalKey key = GlobalKey(debugLabel: 'ScanCode');
-
-  @override
-  void reassemble() {
-    super.reassemble();
-    if (Platform.isAndroid) {
-      _controller!.pauseCamera();
-    }
-    _controller!.resumeCamera();
-  }
+class QRCodeScannerView extends GetView<QRCodeScannerController> {
+  QRCodeScannerView({super.key});
+  final GlobalKey gkey = GlobalKey(debugLabel: 'ScanCode');
 
   @override
   Widget build(BuildContext context) {
@@ -46,8 +31,8 @@ class _QRCodeScannerPageState extends State<QRCodeScannerPage> {
 
   QRView _getQRView(BuildContext context) {
     return QRView(
-      key: key,
-      onQRViewCreated: _onQRViewCreated,
+      key: gkey,
+      onQRViewCreated: controller.onQRViewCreated,
       overlay: QrScannerOverlayShape(
         borderColor: Colors.white,
         borderRadius: 0,
@@ -70,17 +55,17 @@ class _QRCodeScannerPageState extends State<QRCodeScannerPage> {
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              _getOperateButton(Icons.pause, () => _controller?.pauseCamera()),
-              _getOperateButton(Icons.play_arrow, () => _controller?.resumeCamera()),
-              _getOperateButton(Icons.stop, () => _controller?.stopCamera()),
+              _getOperateButton(Icons.pause, () => controller.qrController?.pauseCamera()),
+              _getOperateButton(Icons.play_arrow, () => controller.qrController?.resumeCamera()),
+              _getOperateButton(Icons.stop, () => controller.qrController?.stopCamera()),
             ],
           ),
           Padding(padding: EdgeInsets.symmetric(vertical: 10.w)),
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              _getOperateButton(Icons.flashlight_on, () => _controller?.toggleFlash()),
-              _getOperateButton(Platform.isAndroid ? Icons.flip_camera_android : Icons.flip_camera_ios, () => _controller?.flipCamera()),
+              _getOperateButton(Icons.flashlight_on, () => controller.qrController?.toggleFlash()),
+              _getOperateButton(Platform.isAndroid ? Icons.flip_camera_android : Icons.flip_camera_ios, () => controller.qrController?.flipCamera()),
             ],
           ),
         ],
@@ -104,29 +89,5 @@ class _QRCodeScannerPageState extends State<QRCodeScannerPage> {
         onPressed: onPressed,
       ),
     );
-  }
-
-  void _onQRViewCreated(QRViewController controller) {
-    setState(() {
-      _controller = controller;
-      _controller?.resumeCamera();
-    });
-    controller.scannedDataStream.listen((scanData) {
-      setState(() {
-        _barcode = scanData;
-        String? code = _barcode?.code;
-        if (code == null) {
-          return;
-        }
-        _controller?.pauseCamera();
-        EasyLoading.showInfo("扫描到的二维码是：$code", duration: const Duration(seconds: 3));
-      });
-    });
-  }
-
-  @override
-  void dispose() {
-    _controller?.dispose();
-    super.dispose();
   }
 }

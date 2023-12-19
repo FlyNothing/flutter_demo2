@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_demo2/common/util/global_widget.dart';
+import 'package:flutter_demo2/common/util/standard_widget.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-class ScreenutilHomePage extends StatelessWidget {
-  const ScreenutilHomePage({Key? key}) : super(key: key);
+class ScreenutilHomeView extends StatelessWidget {
+  const ScreenutilHomeView({super.key});
 
   @override
   Widget build(BuildContext context) {

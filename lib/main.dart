@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_demo2/common/global/global_binding.dart';
 import 'package:flutter_demo2/home/home_view.dart';
+import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 
@@ -10,7 +11,7 @@ void main() {
 }
 
 class App extends StatelessWidget {
-  const App({Key? key}) : super(key: key);
+  const App({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -41,6 +42,7 @@ class App extends StatelessWidget {
         // initialBinding: SplashBinding(),
         // getPages: AppPages.pages,
         home: const HomeView(),
+        builder: EasyLoading.init(),
       ),
     );
   }

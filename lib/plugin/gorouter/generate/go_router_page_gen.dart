@@ -18,7 +18,7 @@ part 'go_router_page_gen.g.dart';
 class GoOriginPageRoute extends GoRouteData {
   @override
   Widget build(BuildContext context, GoRouterState state) {
-    return const GoOriginPage();
+    return const GoOriginView();
   }
 }
 
@@ -26,7 +26,7 @@ class GoOriginPageRoute extends GoRouteData {
 class GoRouterPageRoute extends GoRouteData {
   @override
   Widget build(BuildContext context, GoRouterState state) {
-    return const GoRouterPage();
+    return const GoRouterView();
   }
 }
 
@@ -34,6 +34,6 @@ class GoRouterPageRoute extends GoRouteData {
 class GoRouter2PageRoute extends GoRouteData {
   @override
   Widget build(BuildContext context, GoRouterState state) {
-    return const GoRouter2Page();
+    return const GoRouter2View();
   }
 }

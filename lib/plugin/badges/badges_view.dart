@@ -1,11 +1,10 @@
 import 'package:badges/badges.dart' as badges;
 import 'package:flutter/material.dart';
-import 'package:flutter_demo2/common/util/global_widget.dart';
 import 'package:flutter_demo2/common/util/standard_widget.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
 
-class BadgesPage extends StatelessWidget {
-  const BadgesPage({super.key});
+class BadgesView extends StatelessWidget {
+  const BadgesView({super.key});
 
   @override
   Widget build(BuildContext context) {

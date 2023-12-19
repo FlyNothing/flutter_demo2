@@ -1,29 +1,13 @@
-import 'dart:io';
-
 import 'package:flutter/material.dart';
-import 'package:flutter_demo2/common/util/global_widget.dart';
 import 'package:flutter_demo2/common/util/standard_widget.dart';
+import 'package:flutter_demo2/plugin/imagepicker/image_picker_video_controller.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get/get.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:video_player/video_player.dart';
 
-class ImagePickerVideoPage extends StatefulWidget {
-  const ImagePickerVideoPage({Key? key}) : super(key: key);
-
-  @override
-  State<StatefulWidget> createState() => _ImagePickerVideoPageState();
-}
-
-class _ImagePickerVideoPageState extends State<ImagePickerVideoPage> {
-  final ImagePicker _imagePicker = ImagePicker();
-  File? file;
-  VideoPlayerController? _controller;
-
-  @override
-  void dispose() {
-    super.dispose();
-    _controller?.dispose();
-  }
+class ImagePickerVideoView extends GetView<ImagePickerVideoController> {
+  const ImagePickerVideoView({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -44,8 +28,8 @@ class _ImagePickerVideoPageState extends State<ImagePickerVideoPage> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
-                  StandardTextButton("拍照", () => _pickVideo(ImageSource.camera)),
-                  StandardTextButton("相册", () => _pickVideo(ImageSource.gallery)),
+                  StandardTextButton("拍照", () => controller.pickVideo(ImageSource.camera)),
+                  StandardTextButton("相册", () => controller.pickVideo(ImageSource.gallery)),
                 ],
               ),
               Padding(padding: EdgeInsets.symmetric(vertical: 10.h)),
@@ -62,23 +46,12 @@ class _ImagePickerVideoPageState extends State<ImagePickerVideoPage> {
       decoration: BoxDecoration(border: Border.all(width: 1)),
       width: 0.8.sw,
       height: 0.4.sh,
-      child: _controller != null
+      child: controller.controller != null
           ? AspectRatio(
-              aspectRatio: _controller!.value.aspectRatio,
-              child: VideoPlayer(_controller!),
+              aspectRatio: controller.controller!.value.aspectRatio,
+              child: VideoPlayer(controller.controller!),
             )
           : const SizedBox.shrink(),
     );
-  }
-
-  Future<void> _pickVideo(ImageSource source) async {
-    XFile? videoFile = await _imagePicker.pickVideo(source: source);
-    if (videoFile != null) {
-      setState(() {
-        _controller = VideoPlayerController.file(File(videoFile.path));
-        _controller?.initialize();
-        _controller?.play();
-      });
-    }
   }
 }

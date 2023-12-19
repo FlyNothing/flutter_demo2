@@ -1,21 +1,16 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_demo2/common/util/global_widget.dart';
 import 'package:flutter_demo2/common/util/standard_widget.dart';
 import 'package:flutter_demo2/common/util/text_style.dart';
 import 'package:flutter_demo2/plugin/provider/entity/order_record_info.dart';
 import 'package:flutter_demo2/plugin/provider/entity/order_record_overview.dart';
 import 'package:flutter_demo2/plugin/provider/order_common.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get/get.dart';
 import 'package:provider/provider.dart';
 
-class ProviderOrderOverviewPage extends StatefulWidget {
-  const ProviderOrderOverviewPage({Key? key}) : super(key: key);
+class ProviderOrderOverviewView extends StatelessWidget {
+  const ProviderOrderOverviewView({super.key});
 
-  @override
-  State<StatefulWidget> createState() => _ProviderOrderOverviewPageState();
-}
-
-class _ProviderOrderOverviewPageState extends State<ProviderOrderOverviewPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -54,7 +49,7 @@ class _ProviderOrderOverviewPageState extends State<ProviderOrderOverviewPage> {
   }
 
   Widget _getRecordList() {
-    List<OrderRecordInfo> records = context.select((OrderRecordOverview order) => order.records);
+    List<OrderRecordInfo> records = Get.context!.select((OrderRecordOverview order) => order.records);
     return Container(
       padding: EdgeInsets.only(left: 20.w),
       height: 0.6.sh,
@@ -87,17 +82,17 @@ class _ProviderOrderOverviewPageState extends State<ProviderOrderOverviewPage> {
           TableRow(
             children: [
               _getTableTitle("收入金额:"),
-              _getTableContent("￥ ${getPriceString(context.select((OrderRecordOverview order) => order.incomeSum))}", color: Colors.green),
+              _getTableContent("￥ ${getPriceString(Get.context!.select((OrderRecordOverview order) => order.incomeSum))}", color: Colors.green),
               _getTableTitle("收入笔数:"),
-              _getTableContent(context.select((OrderRecordOverview order) => order.incomeCnt).toString(), color: Colors.green),
+              _getTableContent(Get.context!.select((OrderRecordOverview order) => order.incomeCnt).toString(), color: Colors.green),
             ],
           ),
           TableRow(
             children: [
               _getTableTitle("支出金额:"),
-              _getTableContent("￥ ${getPriceString(context.select((OrderRecordOverview order) => order.expenditureSum))}", color: Colors.red),
+              _getTableContent("￥ ${getPriceString(Get.context!.select((OrderRecordOverview order) => order.expenditureSum))}", color: Colors.red),
               _getTableTitle("支出笔数:"),
-              _getTableContent(context.select((OrderRecordOverview order) => order.expenditureCnt).toString(), color: Colors.red),
+              _getTableContent(Get.context!.select((OrderRecordOverview order) => order.expenditureCnt).toString(), color: Colors.red),
             ],
           ),
         ],
@@ -153,12 +148,10 @@ class _ProviderOrderOverviewPageState extends State<ProviderOrderOverviewPage> {
           ),
           actions: [
             _getPadding(
-              StandardTextButton("取消", () => Navigator.pop(context)),
+              StandardTextButton("取消", () => Get.back()),
             ),
             _getPadding(
-              StandardTextButton("确认", () {
-                Navigator.pop(context, OrderRecordInfo(double.parse(amountController.text), type));
-              }),
+              StandardTextButton("确认", () => Get.back(result: OrderRecordInfo(double.parse(amountController.text), type))),
             )
           ],
           actionsAlignment: MainAxisAlignment.center,
@@ -166,7 +159,7 @@ class _ProviderOrderOverviewPageState extends State<ProviderOrderOverviewPage> {
       );
       res.then((value) {
         if (value != null) {
-          context.read<OrderRecordOverview>().addRecord(value);
+          Get.context!.read<OrderRecordOverview>().addRecord(value);
         }
       });
     });

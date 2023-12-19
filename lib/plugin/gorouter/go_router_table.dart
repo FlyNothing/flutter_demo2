@@ -9,19 +9,19 @@ final GoRouter goRouter = GoRouter(
     GoRoute(
       path: '/',
       builder: (BuildContext context, GoRouterState state) {
-        return const GoOriginPage();
+        return const GoOriginView();
       },
       routes: <RouteBase>[
         GoRoute(
           path: 'router1',
           builder: (BuildContext context, GoRouterState state) {
-            return const GoRouterPage();
+            return const GoRouterView();
           },
         ),
         GoRoute(
           path: 'router2',
           builder: (BuildContext context, GoRouterState state) {
-            return const GoRouter2Page();
+            return const GoRouter2View();
           },
         ),
       ],

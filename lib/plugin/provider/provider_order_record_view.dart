@@ -4,8 +4,8 @@ import 'package:provider/provider.dart';
 
 import 'entity/student_info.dart';
 
-class ProviderOrderRecordPage extends StatelessWidget {
-  const ProviderOrderRecordPage({Key? key}) : super(key: key);
+class ProviderOrderRecordView extends StatelessWidget {
+  const ProviderOrderRecordView({super.key});
   @override
   Widget build(BuildContext context) {
     return Container(

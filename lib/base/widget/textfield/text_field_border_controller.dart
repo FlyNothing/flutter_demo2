@@ -9,11 +9,11 @@ class TextFieldBorderController extends GetxController {
 
   @override
   void onInit() {
+    super.onInit();
     controller1 = TextEditingController();
     controller2 = TextEditingController();
     controller3 = TextEditingController();
     controller4 = TextEditingController();
-    super.onInit();
   }
 
   @override

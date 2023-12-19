@@ -1,12 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_demo2/common/util/global_widget.dart';
 import 'package:flutter_demo2/common/util/standard_widget.dart';
 import 'package:flutter_demo2/common/util/text_style.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:url_launcher/url_launcher.dart';
 
-class UrlLauncherPage extends StatelessWidget {
-  const UrlLauncherPage({Key? key}) : super(key: key);
+class UrlLauncherView extends StatelessWidget {
+  const UrlLauncherView({super.key});
 
   @override
   Widget build(BuildContext context) {

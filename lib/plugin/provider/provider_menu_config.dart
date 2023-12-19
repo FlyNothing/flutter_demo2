@@ -5,12 +5,12 @@ import 'package:flutter_demo2/plugin/provider/provider_view.dart';
 import 'package:provider/provider.dart';
 
 List<BaseMenuVO> providerMenuList = [
-  BaseMenuVO("Provider", const ProviderPage()),
+  BaseMenuVO("Provider", const ProviderView()),
   BaseMenuVO(
     "Provider.Order",
     ListenableProvider<OrderRecordOverview>(
       create: (_) => OrderRecordOverview(),
-      child: const ProviderOrderOverviewPage(),
+      child: const ProviderOrderOverviewView(),
     ),
   ),
 ];

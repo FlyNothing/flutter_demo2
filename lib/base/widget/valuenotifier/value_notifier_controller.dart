@@ -10,12 +10,12 @@ class ValueNotifierController extends GetxController {
 
   @override
   void onInit() {
+    super.onInit();
     ageNotifier = ValueNotifier(0);
     ageNotifier.addListener(_setAge);
     nameNotifier = ValueNotifier("");
     nameController = TextEditingController();
     ageController = TextEditingController();
-    super.onInit();
   }
 
   @override

@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_demo2/common/util/global_widget.dart';
+import 'package:flutter_demo2/common/util/standard_widget.dart';
 
-class TestPage extends StatelessWidget {
-  const TestPage({super.key});
+class TestView extends StatelessWidget {
+  const TestView({super.key});
 
   @override
   Widget build(BuildContext context) {

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_demo2/common/util/global_widget.dart';
+import 'package:flutter_demo2/common/util/standard_widget.dart';
 
 List<String> fruits = ["西瓜", "草莓", "苹果", "香蕉", "梨子", "桃子"];
 

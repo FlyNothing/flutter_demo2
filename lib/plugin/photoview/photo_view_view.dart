@@ -1,22 +1,13 @@
-import 'dart:io';
-
 import 'package:flutter/material.dart';
-import 'package:flutter_demo2/common/util/global_widget.dart';
 import 'package:flutter_demo2/common/util/standard_widget.dart';
+import 'package:flutter_demo2/plugin/imagepicker/image_picker_image_controller.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get/get.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:photo_view/photo_view.dart';
 
-class PhotoViewPage extends StatefulWidget {
-  const PhotoViewPage({Key? key}) : super(key: key);
-
-  @override
-  State<StatefulWidget> createState() => _PhotoViewPageState();
-}
-
-class _PhotoViewPageState extends State<PhotoViewPage> {
-  final ImagePicker _imagePicker = ImagePicker();
-  Image? _image;
+class PhotoViewView extends GetView<ImagePickerImageController> {
+  const PhotoViewView({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -35,9 +26,9 @@ class _PhotoViewPageState extends State<PhotoViewPage> {
             decoration: BoxDecoration(border: Border.all(width: 1)),
             width: double.infinity,
             height: double.infinity,
-            child: _image != null
+            child: controller.images.isEmpty
                 ? PhotoView(
-                    imageProvider: _image!.image,
+                    imageProvider: controller.images[0].image,
                     loadingBuilder: (context, event) => Center(
                       child: SizedBox(
                         width: 0.5.sw,
@@ -73,19 +64,10 @@ class _PhotoViewPageState extends State<PhotoViewPage> {
           alignment: Alignment.bottomCenter,
           child: Padding(
             padding: EdgeInsets.symmetric(vertical: 10.h),
-            child: StandardTextButton("相册", () => _pickImage(ImageSource.gallery)),
+            child: StandardTextButton("相册", () => controller.pickImage(ImageSource.gallery)),
           ),
         )
       ],
     );
-  }
-
-  Future<void> _pickImage(ImageSource source) async {
-    XFile? imageFile = await _imagePicker.pickImage(source: source);
-    if (imageFile != null) {
-      setState(() {
-        _image = Image.file(File(imageFile.path), fit: BoxFit.cover);
-      });
-    }
   }
 }

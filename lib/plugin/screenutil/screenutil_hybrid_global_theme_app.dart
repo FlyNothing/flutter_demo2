@@ -4,7 +4,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 /// 混合开发 - 设置全局主题
 class ScreenutilHybridGlobalThemeApp extends StatelessWidget {
-  const ScreenutilHybridGlobalThemeApp({Key? key}) : super(key: key);
+  const ScreenutilHybridGlobalThemeApp({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -16,7 +16,7 @@ class ScreenutilHybridGlobalThemeApp extends StatelessWidget {
           data: ThemeData(
             primarySwatch: Colors.yellow,
           ),
-          child: const ScreenutilHomePage(),
+          child: const ScreenutilHomeView(),
         );
       },
     );

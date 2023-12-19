@@ -3,7 +3,7 @@ import 'package:flutter_demo2/plugin/screenutil/screenutil_init_home_view.dart';
 
 /// 混合开发 - 部分主题
 class ScreenutilHybridPartThemeApp extends StatelessWidget {
-  const ScreenutilHybridPartThemeApp({Key? key}) : super(key: key);
+  const ScreenutilHybridPartThemeApp({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -12,7 +12,7 @@ class ScreenutilHybridPartThemeApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.green,
       ),
-      home: const ScreenutilInitHomePage(),
+      home: const ScreenutilInitHomeView(),
     );
   }
 }

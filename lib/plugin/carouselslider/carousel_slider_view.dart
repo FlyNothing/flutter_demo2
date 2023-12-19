@@ -1,17 +1,15 @@
-// ignore_for_file: must_be_immutable
-
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_demo2/common/util/global_widget.dart';
 import 'package:flutter_demo2/common/util/standard_widget.dart';
 import 'package:flutter_demo2/plugin/carouselslider/carousel_slider_common.dart';
+import 'package:flutter_demo2/plugin/carouselslider/carousel_slider_controller.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get/get.dart';
 
-class CarouselSliderPage extends StatelessWidget {
-  CarouselSliderPage({Key? key}) : super(key: key);
-  final CarouselController _controller = CarouselController();
-  bool _isAutoPlay = true;
+class CarouselSliderView extends GetView<CarouselSliderController> {
+  const CarouselSliderView({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -85,7 +83,7 @@ class CarouselSliderPage extends StatelessWidget {
             autoPlayInterval: const Duration(seconds: 2),
             autoPlay: true,
           ),
-          carouselController: _controller,
+          carouselController: controller.controller,
         ),
       ),
       Padding(
@@ -94,12 +92,11 @@ class CarouselSliderPage extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             StandardTextButton("播放/暂停", () {
-              _isAutoPlay ? _controller.stopAutoPlay() : _controller.startAutoPlay();
-              _isAutoPlay = !_isAutoPlay;
-              EasyLoading.showToast(_isAutoPlay ? "开始播放" : "暂停播放", duration: const Duration(seconds: 1));
+              controller.switchAutoPlay();
+              EasyLoading.showToast(controller.isAutoPlay.value ? "开始播放" : "暂停播放", duration: const Duration(seconds: 1));
             }),
-            StandardTextButton("上一页", () => _controller.previousPage()),
-            StandardTextButton("下一页", () => _controller.nextPage()),
+            StandardTextButton("上一页", () => controller.controller.previousPage()),
+            StandardTextButton("下一页", () => controller.controller.nextPage()),
           ],
         ),
       ),
@@ -114,8 +111,8 @@ class CarouselSliderPage extends StatelessWidget {
                 selectIndex = value ?? 0;
               }),
             ),
-            StandardTextButton("动画", () => _controller.animateToPage(selectIndex)),
-            StandardTextButton("跳转", () => _controller.jumpToPage(selectIndex)),
+            StandardTextButton("动画", () => controller.controller.animateToPage(selectIndex)),
+            StandardTextButton("跳转", () => controller.controller.jumpToPage(selectIndex)),
           ],
         ),
       )

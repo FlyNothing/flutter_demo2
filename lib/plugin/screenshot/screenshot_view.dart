@@ -1,15 +1,13 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_demo2/common/util/global_widget.dart';
 import 'package:flutter_demo2/common/util/standard_widget.dart';
+import 'package:flutter_demo2/plugin/screenshot/screenshot_controller.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get/get.dart';
 import 'package:screenshot/screenshot.dart';
 
-class ScreenshotPage extends StatelessWidget {
-  ScreenshotPage({Key? key}) : super(key: key);
-
-  final ScreenshotController _controller1 = ScreenshotController();
-  final ScreenshotController _controller2 = ScreenshotController();
+class ScreenshotView extends GetView<ScreenshotGetxController> {
+  const ScreenshotView({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -27,8 +25,8 @@ class ScreenshotPage extends StatelessWidget {
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
-            StandardTextButton("页面部件", () => _controller1.capture().then((value) => _showDialog(context, value))),
-            StandardTextButton("未展示的部件", () => _controller2.captureFromWidget(_getContainer()).then((value) => _showDialog(context, value))),
+            StandardTextButton("页面部件", () => controller.controller1.capture().then((value) => _showDialog(context, value))),
+            StandardTextButton("未展示的部件", () => controller.controller2.captureFromWidget(_getContainer()).then((value) => _showDialog(context, value))),
           ],
         )
       ],
@@ -37,7 +35,7 @@ class ScreenshotPage extends StatelessWidget {
 
   Screenshot _getViewContainer() {
     return Screenshot(
-      controller: _controller1,
+      controller: controller.controller1,
       child: Container(
         height: 0.6.sh,
         width: double.infinity,
@@ -56,7 +54,7 @@ class ScreenshotPage extends StatelessWidget {
 
   Screenshot _getContainer() {
     return Screenshot(
-      controller: _controller2,
+      controller: controller.controller2,
       child: Container(
         height: 0.6.sh,
         width: double.infinity,

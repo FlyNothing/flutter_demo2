@@ -5,7 +5,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 /// APP开发
 class ScreenutilApplicationApp extends StatelessWidget {
-  const ScreenutilApplicationApp({Key? key}) : super(key: key);
+  const ScreenutilApplicationApp({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -18,7 +18,7 @@ class ScreenutilApplicationApp extends StatelessWidget {
           theme: ThemeData(
             primarySwatch: Colors.red,
           ),
-          home: const ScreenutilHomePage(),
+          home: const ScreenutilHomeView(),
           builder: EasyLoading.init(),
         );
       },

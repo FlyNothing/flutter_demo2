@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_demo2/common/util/global_widget.dart';
+import 'package:flutter_demo2/common/util/standard_widget.dart';
 
-class ResponsivePage extends StatelessWidget {
-  const ResponsivePage({Key? key}) : super(key: key);
+class ResponsiveView extends StatelessWidget {
+  const ResponsiveView({super.key});
 
   @override
   Widget build(BuildContext context) {

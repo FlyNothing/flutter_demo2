@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_demo2/common/util/global_widget.dart';
+import 'package:flutter_demo2/common/util/standard_widget.dart';
 import 'package:flutter_demo2/common/util/text_style.dart';
 import 'package:go_router/go_router.dart';
 
-class GoRouter2Page extends StatelessWidget {
-  const GoRouter2Page({Key? key}) : super(key: key);
+class GoRouter2View extends StatelessWidget {
+  const GoRouter2View({super.key});
 
   @override
   Widget build(BuildContext context) {

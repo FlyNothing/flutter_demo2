@@ -5,8 +5,8 @@ class CircularProgressIndicator2Controller extends GetxController {
 
   @override
   void onInit() {
-    _calcPercent();
     super.onInit();
+    _calcPercent();
   }
 
   void _calcPercent() async {

@@ -1,19 +1,12 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_demo2/common/util/global_widget.dart';
 import 'package:flutter_demo2/common/util/standard_widget.dart';
+import 'package:flutter_demo2/plugin/cachednetworkimage/cached_network_image_controller.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get/get.dart';
 
-class CachedNetworkImagePage extends StatefulWidget {
-  const CachedNetworkImagePage({Key? key}) : super(key: key);
-
-  @override
-  State<StatefulWidget> createState() => _CachedNetworkImagePageState();
-}
-
-class _CachedNetworkImagePageState extends State<CachedNetworkImagePage> {
-  final TextEditingController _controller = TextEditingController();
-  String _imageUrl = "";
+class CachedNetworkImageView extends GetView<CachedNetworkImageController> {
+  const CachedNetworkImageView({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -27,12 +20,7 @@ class _CachedNetworkImagePageState extends State<CachedNetworkImagePage> {
     return Column(
       children: [
         _getUrlTextField(),
-        StandardTextButton("刷新图片", () {
-          _imageUrl = _controller.text;
-          setState(() {
-            debugPrint("刷新图片");
-          });
-        }),
+        StandardTextButton("刷新图片", () => controller.refreshImageUrl()),
         _getImage(),
       ],
     );
@@ -41,7 +29,7 @@ class _CachedNetworkImagePageState extends State<CachedNetworkImagePage> {
   Center _getImage() {
     return Center(
       child: CachedNetworkImage(
-        imageUrl: _imageUrl,
+        imageUrl: controller.imageUrl.value,
         // imageBuilder: (context, imageProvider) => Container(
         //   decoration: BoxDecoration(
         //     image: DecorationImage(image: imageProvider, fit: BoxFit.cover, colorFilter: const ColorFilter.mode(Colors.red, BlendMode.colorBurn)),
@@ -59,7 +47,7 @@ class _CachedNetworkImagePageState extends State<CachedNetworkImagePage> {
       margin: EdgeInsets.symmetric(vertical: 10.w),
       height: 40.h,
       width: 1.sw,
-      child: StandardTextField(_controller, hintText: "请输入图片下载地址"),
+      child: StandardTextField(controller.textController, hintText: "请输入图片下载地址"),
     );
   }
 }

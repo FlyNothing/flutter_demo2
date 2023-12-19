@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_demo2/common/util/global_widget.dart';
+import 'package:flutter_demo2/common/util/standard_widget.dart';
 import 'package:qr_flutter/qr_flutter.dart';
 
-class QrFlutterPage extends StatelessWidget {
+class QrFlutterView extends StatelessWidget {
   final String _code = '{"code": "A Test QR Code"}';
-  const QrFlutterPage({Key? key}) : super(key: key);
+  const QrFlutterView({super.key});
 
   @override
   Widget build(BuildContext context) {

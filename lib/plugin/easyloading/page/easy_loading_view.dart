@@ -1,29 +1,11 @@
-// ignore_for_file: must_be_immutable
-
-import 'dart:async';
-
 import 'package:flutter/material.dart';
-import 'package:flutter_demo2/common/util/global_widget.dart';
 import 'package:flutter_demo2/common/util/standard_widget.dart';
-import 'package:flutter_demo2/plugin/easyloading/page/test_view.dart';
-import 'package:flutter_easyloading/flutter_easyloading.dart';
+import 'package:flutter_demo2/plugin/easyloading/page/easy_loading_controller.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get/get.dart';
 
-class FlutterEasyLoadingPage extends StatelessWidget {
-  FlutterEasyLoadingPage({Key? key}) : super(key: key);
-
-  Timer? _timer;
-  late double _progress;
-
-  // @override
-  // void initState() {
-  //   EasyLoading.addStatusCallback((status) {
-  //     if (status == EasyLoadingStatus.dismiss) {
-  //       _timer?.cancel();
-  //     }
-  //   });
-  //   EasyLoading.showSuccess('Use in initState');
-  // }
+class EasyLoadingView extends GetView<EasyLoadingController> {
+  const EasyLoadingView({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -39,55 +21,14 @@ class FlutterEasyLoadingPage extends StatelessWidget {
         spacing: 20.w,
         runSpacing: 10.h,
         children: [
-          StandardTextButton('push', () {
-            _timer?.cancel();
-            Navigator.push(context, MaterialPageRoute(builder: (BuildContext context) => const TestPage()));
-          }),
-          StandardTextButton('dismiss', () async {
-            _timer?.cancel();
-            await EasyLoading.dismiss();
-          }),
-          StandardTextButton('show', () async {
-            _timer?.cancel();
-            await EasyLoading.show(
-              status: 'loading...',
-              maskType: EasyLoadingMaskType.black,
-            );
-          }),
-          StandardTextButton('showInfo', () async {
-            _timer?.cancel();
-            await EasyLoading.showInfo(
-              'loading...',
-              maskType: EasyLoadingMaskType.black,
-            );
-          }),
-          StandardTextButton('showToast', () {
-            _timer?.cancel();
-            EasyLoading.showToast('Toast');
-          }),
-          StandardTextButton('showSuccess', () async {
-            _timer?.cancel();
-            await EasyLoading.showSuccess('Great Success!');
-          }),
-          StandardTextButton('showError', () {
-            _timer?.cancel();
-            EasyLoading.showError('Failed with Error');
-          }),
-          StandardTextButton(
-            'showProgress',
-            () {
-              _progress = 0;
-              _timer?.cancel();
-              _timer = Timer.periodic(const Duration(milliseconds: 100), (Timer timer) {
-                EasyLoading.showProgress(_progress, status: '${(_progress * 100).toStringAsFixed(0)}%');
-                _progress += 0.03;
-                if (_progress >= 1) {
-                  _timer?.cancel();
-                  EasyLoading.dismiss();
-                }
-              });
-            },
-          ),
+          StandardTextButton('push', () => controller.push()),
+          StandardTextButton('dismiss', () => controller.dismiss()),
+          StandardTextButton('show', () => controller.show()),
+          StandardTextButton('showInfo', () => controller.showInfo()),
+          StandardTextButton('showToast', () => controller.showToast()),
+          StandardTextButton('showSuccess', () => controller.showSuccess()),
+          StandardTextButton('showError', () => controller.showError()),
+          StandardTextButton('showProgress', () => controller.showProgress()),
         ],
       ),
     );

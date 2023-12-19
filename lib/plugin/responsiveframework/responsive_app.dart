@@ -3,7 +3,7 @@ import 'package:flutter_demo2/plugin/responsiveframework/responsive_view.dart';
 import 'package:responsive_framework/responsive_framework.dart';
 
 class ResponsiveFrameworkApp extends StatelessWidget {
-  const ResponsiveFrameworkApp({Key? key}) : super(key: key);
+  const ResponsiveFrameworkApp({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -22,7 +22,7 @@ class ResponsiveFrameworkApp extends StatelessWidget {
         ],
         background: Container(color: Colors.white),
       ),
-      home: const ResponsivePage(),
+      home: const ResponsiveView(),
       debugShowCheckedModeBanner: false,
     );
   }

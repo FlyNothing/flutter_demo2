@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_demo2/common/util/standard_widget.dart';
 import 'package:flutter_demo2/plugin/gorouter/generate/go_router_page_gen.dart';
-import 'package:flutter_demo2/common/util/global_widget.dart';
 import 'package:flutter_demo2/common/util/text_style.dart';
 
-class GoOriginPage extends StatelessWidget {
-  const GoOriginPage({Key? key}) : super(key: key);
+class GoOriginView extends StatelessWidget {
+  const GoOriginView({super.key});
 
   @override
   Widget build(BuildContext context) {

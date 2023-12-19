@@ -12,5 +12,5 @@ void main(List<String> args) {
   String input = "this is a test";
   String en = enBase64(input);
   String de = deBase64(en);
-  print("base64编码: ${en}        base64解码: ${de}");
+  print("base64编码: $en        base64解码: $de");
 }

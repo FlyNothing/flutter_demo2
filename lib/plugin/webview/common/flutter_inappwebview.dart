@@ -1,36 +1,17 @@
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_demo2/common/util/global_widget.dart';
+import 'package:flutter_demo2/common/util/standard_widget.dart';
+import 'package:flutter_demo2/plugin/webview/common/flutter_inappwebview_controller.dart';
 import 'package:flutter_inappwebview/flutter_inappwebview.dart';
+import 'package:get/get.dart';
 import 'package:url_launcher/url_launcher.dart';
 
-class FlutterInappwebview extends StatefulWidget {
-  const FlutterInappwebview(this._title, this._url, {Key? key}) : super(key: key);
-  final String _title;
-  final String _url;
-
-  @override
-  State<StatefulWidget> createState() => _FlutterInappwebviewState();
-}
-
-class _FlutterInappwebviewState extends State<FlutterInappwebview> {
-  late PullToRefreshController? _pullToRefreshController;
-
-  @override
-  void initState() {
-    _pullToRefreshController = kIsWeb
-        ? null
-        : PullToRefreshController(
-            settings: PullToRefreshSettings(color: Colors.blue, backgroundColor: Colors.green),
-            onRefresh: () => debugPrint("PullToRefreshController onRefresh"),
-          );
-    super.initState();
-  }
+class FlutterInappwebview extends GetView<FlutterInappwebController> {
+  const FlutterInappwebview({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: appBarStandard(title: widget._title),
+      appBar: appBarStandard(title: "Inappwebview1"),
       body: _getBody(context),
     );
   }
@@ -38,21 +19,21 @@ class _FlutterInappwebviewState extends State<FlutterInappwebview> {
   Widget _getBody(BuildContext context) {
     return Center(
       child: InAppWebView(
-          initialUrlRequest: URLRequest(url: WebUri(widget._url)),
+          initialUrlRequest: URLRequest(url: WebUri(controller.url)),
           initialSettings: InAppWebViewSettings(),
-          pullToRefreshController: _pullToRefreshController,
-          onLoadStart: (controller, url) => debugPrint("InAppWebView onLoadStart. url = $url"),
-          onLoadStop: (controller, url) {
-            _pullToRefreshController?.endRefreshing();
+          pullToRefreshController: controller.pullToRefreshController,
+          onLoadStart: (crtl, url) => debugPrint("InAppWebView onLoadStart. url = $url"),
+          onLoadStop: (crtl, url) {
+            controller.pullToRefreshController?.endRefreshing();
             debugPrint("InAppWebView onLoadStop. url = $url");
           },
-          onReceivedError: (controller, request, error) {
-            _pullToRefreshController?.endRefreshing();
+          onReceivedError: (crtl, request, error) {
+            controller.pullToRefreshController?.endRefreshing();
             debugPrint("InAppWebView onReceivedError. url = ${request.url}");
           },
-          onProgressChanged: (controller, progress) {
+          onProgressChanged: (crtl, progress) {
             if (progress == 100) {
-              _pullToRefreshController?.endRefreshing();
+              controller.pullToRefreshController?.endRefreshing();
             }
             debugPrint("InAppWebView onProgressChanged. progress = $progress");
           },

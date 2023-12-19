@@ -1,13 +1,13 @@
 // ignore_for_file: depend_on_referenced_packages
 
 import 'package:flutter/material.dart';
-import 'package:flutter_demo2/common/util/global_widget.dart';
+import 'package:flutter_demo2/common/util/standard_widget.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:vector_graphics/vector_graphics.dart';
 
-class FlutterSvgPage extends StatelessWidget {
-  const FlutterSvgPage({Key? key}) : super(key: key);
+class FlutterSvgView extends StatelessWidget {
+  const FlutterSvgView({super.key});
 
   @override
   Widget build(BuildContext context) {

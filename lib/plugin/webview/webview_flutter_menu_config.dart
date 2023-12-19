@@ -3,6 +3,6 @@ import 'package:flutter_demo2/plugin/webview/webview_flutter/webview_flutter1_vi
 import 'package:flutter_demo2/plugin/webview/webview_flutter/webview_flutter2_view.dart';
 
 List<BaseMenuVO> webviewFlutterMenuList = [
-  BaseMenuVO("Webview1", WebviewFlutter1Page("Webview1")),
-  BaseMenuVO("Webview2", WebviewFlutter2Page("Webview2")),
+  BaseMenuVO("Webview1", WebviewFlutter1View()),
+  BaseMenuVO("Webview2", WebviewFlutter2View()),
 ];
