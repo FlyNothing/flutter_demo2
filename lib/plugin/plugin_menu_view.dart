@@ -24,7 +24,7 @@ class PluginMenuView extends StatelessWidget {
   PreferredSizeWidget _getBar(Function(int) onTap) {
     return appBarStandard(
       centerTitle: false,
-      title: '扩展插件',
+      title: 'appBarTitlePlugin'.tr,
       actions: List.generate(
         pluginMenuSortList.length,
         (index) => GestureDetector(
