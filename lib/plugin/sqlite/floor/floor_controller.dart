@@ -22,6 +22,7 @@ class FloorController extends GetxController {
     future.then((value) async {
       _customerDao = value.customerDao;
       userList.value = await _customerDao.queryAll();
+      update();
     });
   }
 
@@ -36,10 +37,12 @@ class FloorController extends GetxController {
   delete(int index) async {
     await _customerDao.deletePerson(userList[index]);
     userList.removeAt(index);
+    update();
   }
 
   insert() async {
     await _customerDao.insertCustomer(Customer(name: nameController.text, age: int.parse(ageController.text), addr: addrController.text));
     userList.value = await _customerDao.queryAll();
+    update();
   }
 }

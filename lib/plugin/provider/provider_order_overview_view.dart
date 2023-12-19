@@ -32,9 +32,9 @@ class ProviderOrderOverviewView extends StatelessWidget {
         //   selector: (_, order) => Tuple2(order.expenditureSum, order.expenditureCnt),
         //   builder: (context, tuple, child) => Text("支出金额: ${tuple.item1} 支出笔数:  ${tuple.item2}"),
         // ),
-        _getRecordStatistics(),
+        _getRecordStatistics(context),
         _getTitle("收支明细"),
-        _getRecordList(),
+        _getRecordList(context),
         _getAddRecordButton(context),
       ],
     );
@@ -48,8 +48,8 @@ class ProviderOrderOverviewView extends StatelessWidget {
     ));
   }
 
-  Widget _getRecordList() {
-    List<OrderRecordInfo> records = Get.context!.select((OrderRecordOverview order) => order.records);
+  Widget _getRecordList(BuildContext context) {
+    List<OrderRecordInfo> records = context.select((OrderRecordOverview order) => order.records);
     return Container(
       padding: EdgeInsets.only(left: 20.w),
       height: 0.6.sh,
@@ -67,7 +67,7 @@ class ProviderOrderOverviewView extends StatelessWidget {
     );
   }
 
-  Widget _getRecordStatistics() {
+  Widget _getRecordStatistics(BuildContext context) {
     return Padding(
       padding: EdgeInsets.only(left: 20.w),
       child: Table(
@@ -82,17 +82,17 @@ class ProviderOrderOverviewView extends StatelessWidget {
           TableRow(
             children: [
               _getTableTitle("收入金额:"),
-              _getTableContent("￥ ${getPriceString(Get.context!.select((OrderRecordOverview order) => order.incomeSum))}", color: Colors.green),
+              _getTableContent("￥ ${getPriceString(context.select((OrderRecordOverview order) => order.incomeSum))}", color: Colors.green),
               _getTableTitle("收入笔数:"),
-              _getTableContent(Get.context!.select((OrderRecordOverview order) => order.incomeCnt).toString(), color: Colors.green),
+              _getTableContent(context.select((OrderRecordOverview order) => order.incomeCnt).toString(), color: Colors.green),
             ],
           ),
           TableRow(
             children: [
               _getTableTitle("支出金额:"),
-              _getTableContent("￥ ${getPriceString(Get.context!.select((OrderRecordOverview order) => order.expenditureSum))}", color: Colors.red),
+              _getTableContent("￥ ${getPriceString(context.select((OrderRecordOverview order) => order.expenditureSum))}", color: Colors.red),
               _getTableTitle("支出笔数:"),
-              _getTableContent(Get.context!.select((OrderRecordOverview order) => order.expenditureCnt).toString(), color: Colors.red),
+              _getTableContent(context.select((OrderRecordOverview order) => order.expenditureCnt).toString(), color: Colors.red),
             ],
           ),
         ],
@@ -158,7 +158,7 @@ class ProviderOrderOverviewView extends StatelessWidget {
       );
       res.then((value) {
         if (value != null) {
-          Get.context!.read<OrderRecordOverview>().addRecord(value);
+          context.read<OrderRecordOverview>().addRecord(value);
         }
       });
     });

@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_demo2/common/util/standard_widget.dart';
-import 'package:flutter_demo2/plugin/photoview/photo_view_ctrl_controller.dart';
 import 'package:flutter_demo2/plugin/photoview/photo_view_custom_child_controller.dart';
 // import 'package:flutter_demo2/common/util/text_style.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -24,12 +23,12 @@ class PhotoViewCustomChildView extends GetView<PhotoViewCustomChildController> {
       children: [
         Align(
           alignment: Alignment.center,
-          child: GetBuilder<PhotoViewCtrlController>(
+          child: GetBuilder<PhotoViewCustomChildController>(
             builder: (controller) => Container(
               decoration: BoxDecoration(border: Border.all(width: 1)),
               width: double.infinity,
               height: double.infinity,
-              child: controller.image != null ? PhotoView.customChild(child: controller.image) : const SizedBox.shrink(),
+              child: controller.image == null ? const SizedBox.shrink() : PhotoView.customChild(child: controller.image),
               // child: PhotoView.customChild(
               //   child: Center(
               //     child: Container(

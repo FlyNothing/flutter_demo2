@@ -21,25 +21,27 @@ class PhotoViewGalleryView extends GetView<ImagePickerImageController> {
       children: [
         Align(
           alignment: Alignment.center,
-          child: Container(
-            decoration: BoxDecoration(border: Border.all(width: 1)),
-            width: double.infinity,
-            height: double.infinity,
-            child: controller.images.isEmpty
-                ? const SizedBox.shrink()
-                : PhotoViewGallery(
-                    pageOptions: List.generate(controller.images.length, (index) => PhotoViewGalleryPageOptions(imageProvider: controller.images[index].image)),
-                    reverse: false,
-                    pageController: PageController(
-                      initialPage: 0,
-                      keepPage: false,
-                      viewportFraction: 1,
+          child: Obx(
+            () => Container(
+              decoration: BoxDecoration(border: Border.all(width: 1)),
+              width: double.infinity,
+              height: double.infinity,
+              child: controller.images.isEmpty
+                  ? const SizedBox.shrink()
+                  : PhotoViewGallery(
+                      pageOptions: List.generate(controller.images.length, (index) => PhotoViewGalleryPageOptions(imageProvider: controller.images[index].image)),
+                      reverse: false,
+                      pageController: PageController(
+                        initialPage: 0,
+                        keepPage: false,
+                        viewportFraction: 1,
+                      ),
+                      onPageChanged: (index) => debugPrint("----------index=$index"),
+                      scrollDirection: Axis.horizontal,
+                      scrollPhysics: const ClampingScrollPhysics(),
+                      allowImplicitScrolling: false,
                     ),
-                    onPageChanged: (index) => debugPrint("----------index=$index"),
-                    scrollDirection: Axis.horizontal,
-                    scrollPhysics: const ClampingScrollPhysics(),
-                    allowImplicitScrolling: false,
-                  ),
+            ),
           ),
         ),
         Align(

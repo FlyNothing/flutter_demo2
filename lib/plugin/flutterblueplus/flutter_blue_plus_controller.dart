@@ -28,8 +28,10 @@ class FlutterBluePlusController extends GetxController {
 
   /// 扫描设备
   Future bleScanDev() async {
-    if (await FlutterBluePlus.isScanning.last) return;
-    FlutterBluePlus.startScan(timeout: const Duration(seconds: 30), withKeywords: ["C01", "E01"]);
+    FlutterBluePlus.startScan(
+      timeout: const Duration(seconds: 30),
+      withKeywords: ["FD"], //  ["C01", "E01"],
+    );
     _scanStream?.cancel();
     _scanStream = FlutterBluePlus.onScanResults.listen((srs) {
       // ScanResult{

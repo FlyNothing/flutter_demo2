@@ -28,16 +28,18 @@ class CachedNetworkImageView extends GetView<CachedNetworkImageController> {
 
   Center _getImage() {
     return Center(
-      child: CachedNetworkImage(
-        imageUrl: controller.imageUrl.value,
-        // imageBuilder: (context, imageProvider) => Container(
-        //   decoration: BoxDecoration(
-        //     image: DecorationImage(image: imageProvider, fit: BoxFit.cover, colorFilter: const ColorFilter.mode(Colors.red, BlendMode.colorBurn)),
-        //   ),
-        // ),
-        // placeholder: (context, url) => const CircularProgressIndicator(),
-        progressIndicatorBuilder: (context, url, downloadProgress) => CircularProgressIndicator(value: downloadProgress.progress),
-        errorWidget: (context, url, error) => const Icon(Icons.error),
+      child: Obx(
+        () => CachedNetworkImage(
+          imageUrl: controller.imageUrl.value,
+          // imageBuilder: (context, imageProvider) => Container(
+          //   decoration: BoxDecoration(
+          //     image: DecorationImage(image: imageProvider, fit: BoxFit.cover, colorFilter: const ColorFilter.mode(Colors.red, BlendMode.colorBurn)),
+          //   ),
+          // ),
+          // placeholder: (context, url) => const CircularProgressIndicator(),
+          progressIndicatorBuilder: (context, url, downloadProgress) => CircularProgressIndicator(value: downloadProgress.progress),
+          errorWidget: (context, url, error) => const Icon(Icons.error),
+        ),
       ),
     );
   }

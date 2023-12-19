@@ -34,7 +34,7 @@ class VideoPlayerNetworkView extends GetView<VideoPlayerNetworkController> {
                       icon: Icon(
                         controller.controller.value.isPlaying ? Icons.pause : Icons.play_arrow,
                         size: 50.w,
-                        color: Colors.blue,
+                        color: Colors.indigo,
                       ),
                       padding: EdgeInsets.zero,
                     ),

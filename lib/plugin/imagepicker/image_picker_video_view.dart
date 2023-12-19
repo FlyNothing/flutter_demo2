@@ -46,12 +46,14 @@ class ImagePickerVideoView extends GetView<ImagePickerVideoController> {
       decoration: BoxDecoration(border: Border.all(width: 1)),
       width: 0.8.sw,
       height: 0.4.sh,
-      child: controller.controller != null
-          ? AspectRatio(
-              aspectRatio: controller.controller!.value.aspectRatio,
-              child: VideoPlayer(controller.controller!),
-            )
-          : const SizedBox.shrink(),
+      child: GetBuilder<ImagePickerVideoController>(
+        builder: (controller) => controller.controller != null
+            ? AspectRatio(
+                aspectRatio: controller.controller!.value.aspectRatio,
+                child: VideoPlayer(controller.controller!),
+              )
+            : const SizedBox.shrink(),
+      ),
     );
   }
 }

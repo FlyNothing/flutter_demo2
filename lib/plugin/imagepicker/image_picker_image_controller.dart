@@ -13,7 +13,6 @@ class ImagePickerImageController extends GetxController {
     if (imageFile != null) {
       images.clear();
       images.add(Image.file(File(imageFile.path), fit: BoxFit.cover));
-      update();
     }
   }
 

@@ -16,7 +16,10 @@ class SqfliteController extends GetxController {
     ageController = TextEditingController();
     addrController = TextEditingController();
     Future future = UserDao().open();
-    future.then((value) async => userList.value = await UserDao().getAll());
+    future.then((value) async {
+      userList.value = await UserDao().getAll();
+      update();
+    });
   }
 
   @override
@@ -30,10 +33,12 @@ class SqfliteController extends GetxController {
   delete(int index) async {
     await UserDao().deleteById(userList[index].id);
     userList.removeAt(index);
+    update();
   }
 
   insert() async {
     await UserDao().insertRaw(User(id: 0, name: nameController.text, age: int.parse(ageController.text), addr: addrController.text));
     userList.value = await UserDao().getAll();
+    update();
   }
 }

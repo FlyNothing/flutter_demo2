@@ -21,12 +21,12 @@ class PhotoViewGalleryBuilderView extends GetView<ImagePickerImageController> {
       children: [
         Align(
           alignment: Alignment.center,
-          child: Container(
-            decoration: BoxDecoration(border: Border.all(width: 1)),
-            width: double.infinity,
-            height: double.infinity,
-            child: Obx(
-              () => controller.images.isEmpty
+          child: Obx(
+            () => Container(
+              decoration: BoxDecoration(border: Border.all(width: 1)),
+              width: double.infinity,
+              height: double.infinity,
+              child: controller.images.isEmpty
                   ? const SizedBox.shrink()
                   : PhotoViewGallery.builder(
                       itemCount: controller.images.length,

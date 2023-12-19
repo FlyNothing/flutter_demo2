@@ -5,7 +5,7 @@ import 'package:get/get.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:photo_view/photo_view.dart';
 
-class PhotoViewScaleStateControllerController extends GetxController {
+class PhotoViewScaleStateCtrlController extends GetxController {
   final ImagePicker _imagePicker = ImagePicker();
   late PhotoViewScaleStateController controller;
   Image? image;

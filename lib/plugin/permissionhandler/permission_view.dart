@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_demo2/common/util/text_style.dart';
 import 'package:flutter_demo2/plugin/permissionhandler/permission_controller.dart';
 import 'package:get/get.dart';
 import 'package:permission_handler/permission_handler.dart';
@@ -9,38 +10,33 @@ class PermissionWidget extends GetView<PermissionController> {
   final Permission _permission;
 
   Color getPermissionColor() {
-    switch (controller.permissionStatus.value) {
-      case PermissionStatus.denied:
-        return Colors.red;
-      case PermissionStatus.granted:
-        return Colors.green;
-      case PermissionStatus.limited:
-        return Colors.orange;
-      default:
-        return Colors.grey;
+    String value = controller.map[_permission.value] ?? "";
+    if (value == PermissionStatus.denied.name) {
+      return Colors.red;
+    } else if (value == PermissionStatus.granted.name) {
+      return Colors.green;
+    } else if (value == PermissionStatus.limited.name) {
+      return Colors.orange;
+    } else {
+      return Colors.grey;
     }
   }
 
   @override
   Widget build(BuildContext context) {
     return ListTile(
-      title: Text(
-        _permission.toString(),
-        style: Theme.of(context).textTheme.bodyText1,
+      title: Text(_permission.toString(), style: size16W400()),
+      subtitle: Obx(
+        () => Text(
+          controller.map[_permission.value] ?? "",
+          style: size16W400(color: getPermissionColor()),
+        ),
       ),
-      subtitle: Obx(() => Text(
-            controller.permissionStatus.toString(),
-            style: TextStyle(color: getPermissionColor()),
-          )),
       trailing: (_permission is PermissionWithService)
           ? IconButton(
-              icon: const Icon(
-                Icons.info,
-                color: Colors.white,
-              ),
-              onPressed: () {
-                checkServiceStatus(context, _permission as PermissionWithService);
-              })
+              icon: const Icon(Icons.info, color: Colors.orange),
+              onPressed: () => checkServiceStatus(context, _permission as PermissionWithService),
+            )
           : null,
       onTap: () => controller.requestPermission(_permission),
     );

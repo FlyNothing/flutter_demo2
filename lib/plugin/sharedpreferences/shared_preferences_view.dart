@@ -19,11 +19,11 @@ class SharedPreferencesView extends GetView<SharedPreferencesController> {
   Widget _getBody(BuildContext context) {
     return Column(
       children: [
-        Container(
-          padding: EdgeInsets.only(top: 30.h, bottom: 40.h),
-          width: double.infinity,
-          child: Obx(
-            () => Text(
+        Obx(
+          () => Container(
+            padding: EdgeInsets.only(top: 30.h, bottom: 40.h),
+            width: double.infinity,
+            child: Text(
               "当前值为: ${controller.intValue}",
               style: size22W600(color: Colors.red),
               textAlign: TextAlign.center,

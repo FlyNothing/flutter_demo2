@@ -27,12 +27,11 @@ class PullToRefreshApp extends StatelessWidget {
       hideFooterWhenNotFull: false,
       enableBallisticLoad: true,
       child: MaterialApp(
+        debugShowCheckedModeBanner: false,
         theme: ThemeData(
           primarySwatch: Colors.indigo,
         ),
-        home: Scaffold(
-          body: BaseMenuView("PullToRefresh", pullToRefreshMenuList),
-        ),
+        home: BaseMenuView("PullToRefresh", pullToRefreshMenuList),
       ),
     );
     // return MaterialApp(

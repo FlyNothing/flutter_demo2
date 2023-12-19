@@ -20,6 +20,7 @@ class ImagePickerVideoController extends GetxController {
       controller = VideoPlayerController.file(File(videoFile.path));
       controller?.initialize();
       controller?.play();
+      update();
     }
   }
 }

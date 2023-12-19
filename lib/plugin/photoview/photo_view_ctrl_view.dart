@@ -27,7 +27,7 @@ class PhotoViewCtrlView extends GetView<PhotoViewCtrlController> {
               decoration: BoxDecoration(border: Border.all(width: 1)),
               width: double.infinity,
               height: double.infinity,
-              child: controller.image != null ? PhotoView(imageProvider: controller.image!.image, controller: controller.controller) : const SizedBox.shrink(),
+              child: controller.image == null ? const SizedBox.shrink() : PhotoView(imageProvider: controller.image!.image, controller: controller.controller),
             ),
           ),
         ),

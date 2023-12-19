@@ -19,14 +19,31 @@ class FloorView extends GetView<FloorController> {
   Widget _getBody(BuildContext context) {
     return Column(
       children: [
-        Padding(padding: EdgeInsets.symmetric(vertical: 5.h), child: _getCustomerList()),
+        Padding(padding: EdgeInsets.symmetric(vertical: 5.h), child: _getCustomerTable()),
         _addCustomerButton(),
       ],
     );
   }
 
-  Widget _getCustomerList() {
-    List<TableRow> rows = List.generate(
+  Widget _getCustomerTable() {
+    return GetBuilder<FloorController>(
+      builder: (controller) => Table(
+        defaultVerticalAlignment: TableCellVerticalAlignment.middle,
+        columnWidths: {
+          0: FixedColumnWidth(0.1.sw),
+          1: FixedColumnWidth(0.2.sw),
+          2: FixedColumnWidth(0.2.sw),
+          3: FixedColumnWidth(0.3.sw),
+          4: FixedColumnWidth(0.2.sw),
+        },
+        border: TableBorder.all(width: 1.h, color: Colors.grey),
+        children: _getCustomerTableList(),
+      ),
+    );
+  }
+
+  List<TableRow> _getCustomerTableList() {
+    return List.generate(
       controller.userList.length,
       (index) => TableRow(
         children: [
@@ -40,22 +57,7 @@ class FloorView extends GetView<FloorController> {
           )
         ],
       ),
-    );
-    rows.insert(0, TableRow(children: [_getTableText("主键"), _getTableText("姓名"), _getTableText("年纪"), _getTableText("地址"), _getTableText("操作")]));
-    return Obx(
-      () => Table(
-        defaultVerticalAlignment: TableCellVerticalAlignment.middle,
-        columnWidths: {
-          0: FixedColumnWidth(0.1.sw),
-          1: FixedColumnWidth(0.2.sw),
-          2: FixedColumnWidth(0.2.sw),
-          3: FixedColumnWidth(0.3.sw),
-          4: FixedColumnWidth(0.2.sw),
-        },
-        border: TableBorder.all(width: 1.h, color: Colors.grey),
-        children: rows,
-      ),
-    );
+    )..insert(0, TableRow(children: [_getTableText("主键"), _getTableText("姓名"), _getTableText("年纪"), _getTableText("地址"), _getTableText("操作")]));
   }
 
   Center _getTableText(String text) {
@@ -73,7 +75,7 @@ class FloorView extends GetView<FloorController> {
               children: [
                 StandardTextField(controller.nameController, hintText: "请输入姓名"),
                 Padding(padding: EdgeInsets.only(top: 0.02.sh)),
-                StandardTextField(controller.ageController, hintText: "请输入年龄"),
+                StandardTextField(controller.ageController, hintText: "请输入年龄", keyboardType: TextInputType.number),
                 Padding(padding: EdgeInsets.only(top: 0.02.sh)),
                 StandardTextField(controller.addrController, hintText: "请输入地址")
               ],

@@ -17,6 +17,7 @@ class EasyLoadingView extends GetView<EasyLoadingController> {
 
   Widget _getBody(BuildContext context) {
     return SingleChildScrollView(
+      padding: EdgeInsets.symmetric(horizontal: 10.w, vertical: 10.h),
       child: Wrap(
         spacing: 20.w,
         runSpacing: 10.h,
