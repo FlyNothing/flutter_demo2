@@ -31,7 +31,7 @@ class StandardTextButton extends StatelessWidget {
     return TextButton(
       style: ButtonStyle(
         padding: MaterialStateProperty.all(EdgeInsets.zero),
-        overlayColor: MaterialStateProperty.all(Colors.blue),
+        overlayColor: MaterialStateProperty.all(Colors.indigo),
       ),
       onPressed: onPressed,
       child: Text(text, style: size14W400(color: Colors.white)),

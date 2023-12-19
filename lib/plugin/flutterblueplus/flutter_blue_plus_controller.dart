@@ -5,7 +5,7 @@ import 'package:flutter_blue_plus/flutter_blue_plus.dart';
 import 'package:get/get.dart';
 
 class FlutterBluePlusController extends GetxController {
-  final List<BluetoothDevice> devs = List.empty(growable: true);
+  var devs = List.empty(growable: true).obs;
   StreamSubscription<List<ScanResult>>? _scanStream;
   StreamSubscription<BluetoothConnectionState>? _stateStream;
   StreamSubscription<List<int>>? _readStream;

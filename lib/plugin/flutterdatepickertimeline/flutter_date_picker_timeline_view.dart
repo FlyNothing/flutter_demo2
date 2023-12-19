@@ -42,7 +42,7 @@ class FlutterDatePickerTimelineView extends GetView<FlutterDatePickerTimelineCon
         unselectedItemWidth: 30.w,
         unselectedItemTextStyle: size16W400(),
         selectedItemWidth: 30.w,
-        selectedItemBackgroundColor: Colors.blue,
+        selectedItemBackgroundColor: Colors.indigo,
         selectedItemTextStyle: size16W400(color: Colors.white),
         itemRadius: 30.w,
         selectedItemMargin: const EdgeInsets.symmetric(horizontal: 10),

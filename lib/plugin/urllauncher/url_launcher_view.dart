@@ -20,7 +20,7 @@ class UrlLauncherView extends StatelessWidget {
       children: [
         Row(
           children: [
-            _getText("https://docs.flutter.dev/get-started/install", color: Colors.blue),
+            _getText("https://docs.flutter.dev/get-started/install", color: Colors.indigo),
             _getButton(
               Icons.navigate_next,
               () => _launchURL(
@@ -31,7 +31,7 @@ class UrlLauncherView extends StatelessWidget {
         ),
         Row(
           children: [
-            _getText("https://docs.flutter.dev/development/ui/layout#constraints", color: Colors.blue),
+            _getText("https://docs.flutter.dev/development/ui/layout#constraints", color: Colors.indigo),
             _getButton(
               Icons.navigate_next,
               () => _launchURL(
@@ -42,7 +42,7 @@ class UrlLauncherView extends StatelessWidget {
         ),
         Row(
           children: [
-            _getText("https://www.dartpad.cn/?id=e66e420f2f0201c772f73819711bf290", color: Colors.blue),
+            _getText("https://www.dartpad.cn/?id=e66e420f2f0201c772f73819711bf290", color: Colors.indigo),
             _getButton(
               Icons.navigate_next,
               () => _launchURL(
@@ -64,7 +64,7 @@ class UrlLauncherView extends StatelessWidget {
         ),
         Row(
           children: [
-            _getText("https://www.dartpad.cn/?id=e66e420f2f0201c772f73819711bf290", color: Colors.blue),
+            _getText("https://www.dartpad.cn/?id=e66e420f2f0201c772f73819711bf290", color: Colors.indigo),
             _getButton(
               Icons.navigate_next,
               () => _launchURL(
@@ -75,7 +75,7 @@ class UrlLauncherView extends StatelessWidget {
         ),
         Row(
           children: [
-            _getText("https://www.dartpad.cn/?id=e66e420f2f0201c772f73819711bf290", color: Colors.blue),
+            _getText("https://www.dartpad.cn/?id=e66e420f2f0201c772f73819711bf290", color: Colors.indigo),
             _getButton(
               Icons.navigate_next,
               () => _launchURL(Uri.parse('https://www.dartpad.cn/?id=e66e420f2f0201c772f73819711bf290')),

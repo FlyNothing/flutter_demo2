@@ -9,7 +9,7 @@ class FlexibleView extends StatelessWidget {
   final List<int> _flexList32 = [2, 3, 5];
   final List<int> _flexList41 = [1, 1, 1, 2];
   final List<int> _flexList42 = [1, 2, 3, 4];
-  final List<Color> _colorList = [Colors.red, Colors.blue, Colors.yellow];
+  final List<Color> _colorList = [Colors.red, Colors.indigo, Colors.yellow];
 
   @override
   Widget build(BuildContext context) {

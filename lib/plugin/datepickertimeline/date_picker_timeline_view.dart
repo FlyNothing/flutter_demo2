@@ -36,7 +36,7 @@ class DatePickerTimelineView extends GetView<DatePickerTimelineController> {
         height: 100.h,
         controller: DatePickerController(),
         selectedTextColor: Colors.white,
-        selectionColor: Colors.blue,
+        selectionColor: Colors.indigo,
         deactivatedColor: Colors.black12,
         initialSelectedDate: controller.selectDay.value,
         activeDates: [

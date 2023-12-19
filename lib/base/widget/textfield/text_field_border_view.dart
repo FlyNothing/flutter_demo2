@@ -66,7 +66,7 @@ class TextFieldBorderView extends GetView<TextFieldBorderController> {
                 gapPadding: 0,
               ),
               focusedErrorBorder: OutlineInputBorder(
-                borderSide: BorderSide(width: 1, color: Colors.blue),
+                borderSide: BorderSide(width: 1, color: Colors.indigo),
                 gapPadding: 0,
               ),
               errorText: "errorText",

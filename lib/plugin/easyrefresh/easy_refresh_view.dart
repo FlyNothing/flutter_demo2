@@ -4,7 +4,7 @@ import 'package:flutter_demo2/common/util/standard_widget.dart';
 import 'package:flutter_demo2/plugin/easyrefresh/easy_refresh_controller.dart';
 import 'package:get/get.dart';
 
-class FlutterEasyRefreshView extends StatelessWidget {
+class FlutterEasyRefreshView extends GetView<EasyRefreshGetxController> {
   const FlutterEasyRefreshView({super.key});
 
   @override
@@ -16,24 +16,21 @@ class FlutterEasyRefreshView extends StatelessWidget {
   }
 
   Widget _getBody() {
-    return GetBuilder<EasyRefreshGetxController>(
-      init: EasyRefreshGetxController(),
-      builder: (controller) => controller.data.isEmpty
-          ? const Center(child: CircularProgressIndicator())
-          : getEasyRefresh(
-              controller: controller.controller,
-              onLoad: controller.loadData,
-              onRefresh: controller.refreshData,
-              child: ListView.builder(
-                itemCount: controller.data.length,
-                itemBuilder: ((context, index) => ListTile(
-                      // contentPadding: const EdgeInsets.all(20),
-                      leading: Text(controller.data[index]["leading"] as String),
-                      title: Text(controller.data[index]["title"] as String),
-                      trailing: Text(controller.data[index]["trailing"] as String),
-                    )),
-              ),
-            ),
+    return getEasyRefresh(
+      controller: controller.controller,
+      onLoad: controller.loadData,
+      onRefresh: controller.refreshData,
+      child: Obx(
+        () => ListView.builder(
+          itemCount: controller.data.length,
+          itemBuilder: ((context, index) => ListTile(
+                // contentPadding: const EdgeInsets.all(20),
+                leading: Text(controller.data[index]["leading"] as String),
+                title: Text(controller.data[index]["title"] as String),
+                trailing: Text(controller.data[index]["trailing"] as String),
+              )),
+        ),
+      ),
     );
   }
 }

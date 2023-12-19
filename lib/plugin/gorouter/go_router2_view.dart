@@ -19,8 +19,8 @@ class GoRouter2View extends StatelessWidget {
       child: Center(
         child: Container(
           alignment: Alignment.center,
-          decoration: BoxDecoration(border: Border.all(width: 1, color: Colors.blue)),
-          child: Text("Router2.", textAlign: TextAlign.center, style: size16W500(color: Colors.blue)),
+          decoration: BoxDecoration(border: Border.all(width: 1, color: Colors.indigo)),
+          child: Text("Router2.", textAlign: TextAlign.center, style: size16W500(color: Colors.indigo)),
         ),
       ),
       onTap: () => context.pop(),

@@ -9,6 +9,8 @@ import 'package:flutter_demo2/plugin/carouselslider/carousel_slider_view.dart';
 import 'package:flutter_demo2/plugin/datepickertimeline/date_picker_timeline_controller.dart';
 import 'package:flutter_demo2/plugin/datepickertimeline/date_picker_timeline_view.dart';
 import 'package:flutter_demo2/plugin/easyloading/page/easy_loading_controller.dart';
+import 'package:flutter_demo2/plugin/easyrefresh/easy_refresh_controller.dart';
+import 'package:flutter_demo2/plugin/flutterblueplus/flutter_blue_plus_controller.dart';
 import 'package:flutter_demo2/plugin/flutterblueplus/flutter_blue_plus_view.dart';
 import 'package:flutter_demo2/plugin/flutterdatepickertimeline/flutter_date_picker_timeline_controller.dart';
 import 'package:flutter_demo2/plugin/flutterdatepickertimeline/flutter_date_picker_timeline_view.dart';
@@ -60,9 +62,9 @@ List<PluginMenuVO> pluginMenuList = [
   PluginMenuVO("carousel_slider", "轮播图", const CarouselSliderView(), binding: BindingsBuilder.put(() => CarouselSliderController())),
   PluginMenuVO("chewie", "视频播放【2】", BaseMenuView("视频播放【2】", chewieMenuList)),
   PluginMenuVO("date_picker_timeline", "左右滑动日期选择器【1】", const DatePickerTimelineView(), binding: BindingsBuilder.put(() => DatePickerTimelineController())),
-  PluginMenuVO("easy_refresh", "下拉刷新及上拉加载【1】", const FlutterEasyRefreshView()),
+  PluginMenuVO("easy_refresh", "下拉刷新及上拉加载【1】", const FlutterEasyRefreshView(), binding: BindingsBuilder.put(() => EasyRefreshGetxController())),
   PluginMenuVO("floor", "SQLLite数据库【2】", const FloorView(), binding: BindingsBuilder.put(() => FloorController())),
-  PluginMenuVO("flutter_blue_plus", "蓝牙连接", const FlutterBluePlusView()),
+  PluginMenuVO("flutter_blue_plus", "蓝牙连接", const FlutterBluePlusView(), binding: BindingsBuilder.put(() => FlutterBluePlusController())),
   PluginMenuVO("flutter_date_picker_timeline", "左右滑动日期选择器【2】", const FlutterDatePickerTimelineView(), binding: BindingsBuilder.put(() => FlutterDatePickerTimelineController())),
   PluginMenuVO("flutter_easyloading", "简易弹窗和加载", const EasyLoadingView(), binding: BindingsBuilder.put(() => EasyLoadingController())),
   PluginMenuVO("flutter_inappwebview", "Webview【2】", BaseMenuView("webview【2】", flutterInappwebviewMenuList)),

@@ -21,7 +21,7 @@ class ResponsiveView extends StatelessWidget {
         Container(width: 600, height: 50, color: Colors.yellow),
         Container(width: 800, height: 50, color: Colors.green),
         Container(width: 1000, height: 50, color: Colors.cyan),
-        Container(width: 1200, height: 50, color: Colors.blue),
+        Container(width: 1200, height: 50, color: Colors.indigo),
         Container(width: 1400, height: 50, color: Colors.purple),
         Container(width: 1600, height: 50, color: Colors.grey),
       ],

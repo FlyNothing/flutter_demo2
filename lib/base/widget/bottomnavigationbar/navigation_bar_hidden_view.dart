@@ -3,7 +3,7 @@ import 'package:flutter_demo2/base/widget/bottomnavigationbar/navigation_bar_hid
 import 'package:flutter_demo2/common/util/standard_widget.dart';
 import 'package:get/get.dart';
 
-class NavigationBarHiddenView extends StatelessWidget {
+class NavigationBarHiddenView extends GetView<NavigationBarHiddenController> {
   const NavigationBarHiddenView({super.key});
 
   @override
@@ -15,11 +15,10 @@ class NavigationBarHiddenView extends StatelessWidget {
   }
 
   Widget _getBody() {
-    return Center(
-      child: GetBuilder<NavigationBarHiddenController>(
-        init: NavigationBarHiddenController(),
-        builder: (controller) => StandardTextButton(
-          controller.visible ? "HideBar" : "ShowBar",
+    return Obx(
+      () => Center(
+        child: StandardTextButton(
+          controller.visible.value ? "HideBar" : "ShowBar",
           () => controller.switchVisible(),
         ),
       ),

@@ -11,7 +11,7 @@ class FlutterInappwebController extends GetxController {
     pullToRefreshController = GetPlatform.isWeb
         ? null
         : PullToRefreshController(
-            settings: PullToRefreshSettings(color: Colors.blue, backgroundColor: Colors.green),
+            settings: PullToRefreshSettings(color: Colors.indigo, backgroundColor: Colors.green),
             onRefresh: () => debugPrint("PullToRefreshController onRefresh"),
           );
   }

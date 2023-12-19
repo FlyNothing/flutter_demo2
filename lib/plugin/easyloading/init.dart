@@ -28,5 +28,5 @@ void initEasyLoading() {
     ..textColor = Colors.yellow
 
     /* 仅对 EasyLoadingMaskType.custom 有效 */
-    ..maskColor = Colors.blue.withOpacity(0.5);
+    ..maskColor = Colors.indigo.withOpacity(0.5);
 }

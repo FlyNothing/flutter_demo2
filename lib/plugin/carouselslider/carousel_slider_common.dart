@@ -7,7 +7,7 @@ List<Widget> widgets = [
   _genWidget("3", Colors.yellow.withOpacity(0.8)),
   _genWidget("4", Colors.green.withOpacity(0.8)),
   _genWidget("5", Colors.cyan.withOpacity(0.8)),
-  _genWidget("6", Colors.blue.withOpacity(0.8)),
+  _genWidget("6", Colors.indigo.withOpacity(0.8)),
   _genWidget("7", Colors.purple.withOpacity(0.8)),
   _genWidget("8", Colors.black.withOpacity(0.8)),
 ];

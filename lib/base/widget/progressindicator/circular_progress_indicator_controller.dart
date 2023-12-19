@@ -11,7 +11,7 @@ class ProgressIndicatorController extends GetxController with GetSingleTickerPro
     super.onInit();
     controller = AnimationController(vsync: this, duration: Duration(seconds: _durationSeconds));
     controller.forward();
-    colorAnimation = ColorTween(begin: Colors.blue, end: Colors.blue).animate(
+    colorAnimation = ColorTween(begin: Colors.indigo, end: Colors.indigo).animate(
       CurvedAnimation(parent: controller, curve: Curves.linear),
     );
   }

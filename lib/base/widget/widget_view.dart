@@ -19,7 +19,7 @@ class WidgetView extends StatelessWidget {
     return Center(
       child: Container(
         alignment: Alignment.center,
-        decoration: BoxDecoration(border: Border.all(width: 1, color: Colors.blue)),
+        decoration: BoxDecoration(border: Border.all(width: 1, color: Colors.indigo)),
         child: Text("This is a test widget page. widget final name : $finalName", textAlign: TextAlign.center, style: size16W500()),
       ),
     );

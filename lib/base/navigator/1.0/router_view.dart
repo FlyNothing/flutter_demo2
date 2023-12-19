@@ -27,8 +27,8 @@ class RouterView extends StatelessWidget {
       child: Center(
         child: Container(
           alignment: Alignment.center,
-          decoration: BoxDecoration(border: Border.all(width: 1, color: Colors.blue)),
-          child: Text("This is a router page. argMap = $argu", textAlign: TextAlign.center, style: size16W500(color: Colors.blue)),
+          decoration: BoxDecoration(border: Border.all(width: 1, color: Colors.indigo)),
+          child: Text("This is a router page. argMap = $argu", textAlign: TextAlign.center, style: size16W500(color: Colors.indigo)),
         ),
       ),
       onTap: () => Navigator.push(

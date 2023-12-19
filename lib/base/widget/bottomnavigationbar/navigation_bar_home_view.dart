@@ -18,24 +18,23 @@ List<BottomNavigationBarItem> _myTabs = List.generate(
   ),
 );
 
-class NavigationBarHomeView extends StatelessWidget {
+class NavigationBarHomeView extends GetView<NavigationBarHiddenController> {
   const NavigationBarHomeView({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return GetBuilder<NavigationBarHiddenController>(
-      init: NavigationBarHiddenController(),
-      builder: (controller) => Scaffold(
+    return Obx(
+      () => Scaffold(
         bottomNavigationBar: Visibility(
-          visible: controller.visible,
+          visible: controller.visible.value,
           child: BottomNavigationBar(
             items: _myTabs,
-            currentIndex: controller.index,
+            currentIndex: controller.index.value,
             onTap: (index) => controller.setIndex(index),
             type: BottomNavigationBarType.fixed,
           ),
         ),
-        body: _barList[controller.index]['page'],
+        body: _barList[controller.index.value]['page'],
       ),
     );
   }

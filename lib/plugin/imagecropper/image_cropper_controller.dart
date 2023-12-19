@@ -33,7 +33,7 @@ class ImageCropperController extends GetxController {
       uiSettings: [
         AndroidUiSettings(
           toolbarTitle: 'Cropper',
-          toolbarColor: Colors.blue,
+          toolbarColor: Colors.indigo,
           toolbarWidgetColor: Colors.white,
           initAspectRatio: CropAspectRatioPreset.square,
           lockAspectRatio: false,

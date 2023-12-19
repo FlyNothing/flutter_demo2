@@ -29,7 +29,7 @@ class LinearProgressIndicatorView extends GetView<ProgressIndicatorController> {
                     padding: EdgeInsets.only(top: 100.h, bottom: 15.h),
                     child: Text(
                       "${(controller.controller.value * 100).round()}%",
-                      style: size16W500(color: Colors.blue),
+                      style: size16W500(color: Colors.indigo),
                     ),
                   ),
                   SizedBox(
@@ -46,7 +46,7 @@ class LinearProgressIndicatorView extends GetView<ProgressIndicatorController> {
           ),
           Padding(
             padding: EdgeInsets.only(top: 40.h),
-            child: Text("正在加载中", style: size16W600(color: Colors.blue)),
+            child: Text("正在加载中", style: size16W600(color: Colors.indigo)),
           ),
         ],
       ),

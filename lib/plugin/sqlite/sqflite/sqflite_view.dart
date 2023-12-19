@@ -52,7 +52,7 @@ class SqfliteView extends GetView<SqfliteController> {
           _getTableText(controller.userList[index].age.toString()),
           _getTableText(controller.userList[index].addr ?? ""),
           GestureDetector(
-            child: Center(child: Text("删除", style: size14W500(color: Colors.blue))),
+            child: Center(child: Text("删除", style: size14W500(color: Colors.indigo))),
             onTap: () => controller.delete(index),
           )
         ],

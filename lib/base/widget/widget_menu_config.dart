@@ -1,4 +1,5 @@
 import 'package:flutter_demo2/base/widget/bottom_sheet_view.dart';
+import 'package:flutter_demo2/base/widget/bottomnavigationbar/navigation_bar_hidden_controller.dart';
 import 'package:flutter_demo2/base/widget/image/image_controller.dart';
 import 'package:flutter_demo2/base/widget/listview_gridview1_view.dart';
 import 'package:flutter_demo2/base/widget/listview_gridview2_view.dart';
@@ -25,7 +26,7 @@ List<BaseMenuVO> widgetMenuList = [
   BaseMenuVO("ListView和GridView2", const ListviewGridview2View()),
   BaseMenuVO("Stack和GridView2", const StackGridviewView()),
   BaseMenuVO("指示器", BaseMenuView("指示器", progressIndicatorMenuList)),
-  BaseMenuVO("隐藏NavigationBar", const NavigationBarHomeView()),
+  BaseMenuVO("隐藏NavigationBar", const NavigationBarHomeView(), binding: BindingsBuilder.put(() => NavigationBarHiddenController())),
   BaseMenuVO("文本框边框", const TextFieldBorderView(), binding: BindingsBuilder.put(() => TextFieldBorderController())),
   BaseMenuVO("截图", RepaintBoundaryView()),
   BaseMenuVO("Flexible和Expanded", FlexibleView()),

@@ -27,7 +27,7 @@ class FlutterSvgView extends StatelessWidget {
         ),
         SvgPicture.asset(
           "assets/images/ubuntu.svg",
-          colorFilter: const ColorFilter.mode(Colors.blue, BlendMode.darken),
+          colorFilter: const ColorFilter.mode(Colors.indigo, BlendMode.darken),
         ),
         const SvgPicture(
           AssetBytesLoader("assets/images/ubuntu.svg.vec"),
@@ -38,7 +38,7 @@ class FlutterSvgView extends StatelessWidget {
         ),
         SvgPicture.asset(
           "assets/images/debian.svg",
-          colorFilter: const ColorFilter.mode(Colors.blue, BlendMode.darken),
+          colorFilter: const ColorFilter.mode(Colors.indigo, BlendMode.darken),
         ),
         SvgPicture.network(
           "https://dev.w3.org/SVG/tools/svgweb/samples/svg-files/USStates.svg",

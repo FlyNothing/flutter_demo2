@@ -6,7 +6,7 @@ import 'package:flutter_demo2/plugin/flutterblueplus/flutter_blue_plus_controlle
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 
-class FlutterBluePlusView extends StatelessWidget {
+class FlutterBluePlusView extends GetView<FlutterBluePlusController> {
   const FlutterBluePlusView({super.key});
 
   @override
@@ -18,9 +18,8 @@ class FlutterBluePlusView extends StatelessWidget {
   }
 
   Widget _getBody() {
-    return GetBuilder<FlutterBluePlusController>(
-      init: FlutterBluePlusController(),
-      builder: (controller) => Column(
+    return Obx(
+      () => Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           _getTitle(controller.devs.isEmpty ? "搜索设备中···" : "设备列表："),

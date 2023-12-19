@@ -37,7 +37,7 @@ class BadgesView extends StatelessWidget {
         Padding(
           padding: const EdgeInsets.all(10),
           child: badges.Badge(
-            badgeColor: Colors.blue,
+            badgeColor: Colors.indigo,
             badgeContent: const Text('3'),
             position: badges.BadgePosition.bottomEnd(),
             child: const Text("文字的蓝色徽标"),

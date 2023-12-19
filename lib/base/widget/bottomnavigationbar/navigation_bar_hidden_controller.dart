@@ -1,16 +1,14 @@
 import 'package:get/get.dart';
 
 class NavigationBarHiddenController extends GetxController {
-  bool visible = true;
-  int index = 0;
+  var visible = true.obs;
+  var index = 0.obs;
 
   switchVisible() {
-    visible = !visible;
-    update();
+    visible.value = !visible.value;
   }
 
   setIndex(int value) {
-    index = value;
-    update();
+    index.value = value;
   }
 }
