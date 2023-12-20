@@ -13,7 +13,7 @@ class PhotoViewCustomChildView extends GetView<PhotoViewCustomChildController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: appBarStandard(title: 'PhotoView.customChild'),
+      appBar: gAppBar('PhotoView.customChild'),
       body: _getBody(context),
     );
   }
@@ -35,10 +35,10 @@ class PhotoViewCustomChildView extends GetView<PhotoViewCustomChildController> {
               //       width: 1.sw,
               //       height: 1.sh,
               //       alignment: Alignment.center,
-              //       color: Colors.yellow.withOpacity(0.5),
+              //       color: gColorYellow.withOpacity(0.5),
               //       child: Text(
               //         "PhotoView.customChild",
-              //         style: size14W600(color: Colors.red),
+              //         style: size14W600(color: gColorRed),
               //       ),
               //     ),
               //   ),
@@ -50,7 +50,7 @@ class PhotoViewCustomChildView extends GetView<PhotoViewCustomChildController> {
           alignment: Alignment.bottomCenter,
           child: Padding(
             padding: EdgeInsets.symmetric(vertical: 10.h),
-            child: StandardTextButton("相册", () => controller.pickImage(ImageSource.gallery)),
+            child: gTextButton("相册", () => controller.pickImage(ImageSource.gallery)),
           ),
         )
       ],

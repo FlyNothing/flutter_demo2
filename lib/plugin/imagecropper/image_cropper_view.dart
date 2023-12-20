@@ -13,7 +13,7 @@ class ImageCropperView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: appBarStandard(title: 'ImageCropper测试'),
+      appBar: gAppBar('ImageCropper测试'),
       body: _getBody(context),
     );
   }
@@ -28,7 +28,7 @@ class ImageCropperView extends StatelessWidget {
             child: Column(
               children: [
                 Padding(padding: EdgeInsets.symmetric(vertical: 10.h)),
-                StandardTextButton("相册", () => controller.pickImage()),
+                gTextButton("相册", () => controller.pickImage()),
                 Padding(padding: EdgeInsets.symmetric(vertical: 10.h)),
                 Container(
                   decoration: BoxDecoration(border: Border.all(width: 1)),

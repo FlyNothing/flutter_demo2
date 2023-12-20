@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_demo2/common/global/global_theme_config.dart';
 import 'package:flutter_demo2/common/util/standard_widget.dart';
 import 'package:flutter_demo2/plugin/video/video_player/video_player_network_controller.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -11,7 +12,7 @@ class VideoPlayerNetworkView extends GetView<VideoPlayerNetworkController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: appBarStandard(title: "Network视频"),
+      appBar: gAppBar("Network视频"),
       body: _getBody(context),
     );
   }
@@ -34,14 +35,14 @@ class VideoPlayerNetworkView extends GetView<VideoPlayerNetworkController> {
                       icon: Icon(
                         controller.controller.value.isPlaying ? Icons.pause : Icons.play_arrow,
                         size: 50.w,
-                        color: Colors.indigo,
+                        color: gColorLightPrimary,
                       ),
                       padding: EdgeInsets.zero,
                     ),
                   ),
                 ]
               : [
-                  Container(color: Colors.black.withOpacity(0.8)),
+                  Container(color: gColorBlack87),
                 ],
         ),
       ),

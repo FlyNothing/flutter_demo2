@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_demo2/common/global/global_theme_config.dart';
 import 'package:flutter_demo2/common/util/standard_widget.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
@@ -10,7 +11,7 @@ class BottomSheetView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: appBarStandard(title: "BottomSheet测试"),
+      appBar: gAppBar("BottomSheet测试"),
       // 加上Builder，否则showBottomSheet调用会出现异常
       // No Scaffold widget found.
       // BottomSheetDemoView widgets require a Scaffold widget ancestor.
@@ -21,30 +22,20 @@ class BottomSheetView extends StatelessWidget {
   Widget _getBody(BuildContext context) {
     return Padding(
       padding: EdgeInsets.symmetric(vertical: 10.h),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          StandardTextButton(
+          gTextButton(
             "showBottomSheet",
-            () => showBottomSheet(
-              context: context,
-              builder: (context) => _getBottomSheet(),
-            ),
+            () => showBottomSheet(context: context, builder: (context) => _getBottomSheet()),
           ),
-          StandardTextButton(
+          gTextButton(
             "showModalBottomSheet",
-            () => showModalBottomSheet(
-              barrierColor: Colors.black54,
-              context: context,
-              builder: (context) => _getBottomSheet(),
-            ),
+            () => showModalBottomSheet(context: context, builder: (context) => _getBottomSheet()),
           ),
-          StandardTextButton(
+          gTextButton(
             "Get.bottomSheet",
-            () => Get.bottomSheet(
-              _getBottomSheet(),
-              barrierColor: Colors.black54,
-            ),
+            () => Get.bottomSheet(_getBottomSheet()),
           ),
         ],
       ),
@@ -55,7 +46,7 @@ class BottomSheetView extends StatelessWidget {
     return Container(
       alignment: Alignment.center,
       decoration: const BoxDecoration(
-        color: Colors.green,
+        color: gColorGreen,
       ),
       height: 200,
       child: const Text(

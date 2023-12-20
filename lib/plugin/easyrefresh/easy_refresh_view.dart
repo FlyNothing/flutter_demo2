@@ -10,7 +10,7 @@ class FlutterEasyRefreshView extends GetView<EasyRefreshGetxController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: appBarStandard(title: 'EasyRefresh测试'),
+      appBar: gAppBar('EasyRefresh测试'),
       body: _getBody(),
     );
   }

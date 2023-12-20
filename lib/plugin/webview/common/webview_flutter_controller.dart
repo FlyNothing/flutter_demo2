@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_demo2/common/global/global_theme_config.dart';
 import 'package:get/get.dart';
 import 'package:webview_flutter/webview_flutter.dart';
 
@@ -8,7 +9,7 @@ class WebviewFlutterController extends GetxController {
   void loadRequest(String url) {
     controller
       ..setJavaScriptMode(JavaScriptMode.unrestricted)
-      ..setBackgroundColor(Colors.white)
+      ..setBackgroundColor(gColorWhite)
       ..setNavigationDelegate(NavigationDelegate(
         onPageStarted: (url) => debugPrint("----------onPageStarted, url = $url"),
         onPageFinished: (url) => debugPrint("----------onPageFinished, url = $url"),

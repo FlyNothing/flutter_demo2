@@ -12,7 +12,7 @@ class PlatformWebviewFlutter extends GetView<PlatformWebviewFlutterController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: appBarStandard(title: "Webview2"),
+      appBar: gAppBar("Webview2"),
       body: _getBody(context),
     );
   }

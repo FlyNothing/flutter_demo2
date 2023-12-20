@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_demo2/base/navigator/2.0/navigator/item_view.dart';
 import 'package:flutter_demo2/base/navigator/2.0/navigator/listview_view.dart';
+import 'package:flutter_demo2/common/global/global_theme_config.dart';
 
 class ListitemNavigatorApp extends StatefulWidget {
   const ListitemNavigatorApp({super.key});
@@ -16,7 +17,7 @@ class _ListitemNavigatorAppState extends State<ListitemNavigatorApp> {
     return MaterialApp(
       debugShowCheckedModeBanner: false, // 去掉右上角debug贴纸
       theme: ThemeData(
-        primarySwatch: Colors.indigo,
+        primarySwatch: gColorLightPrimary,
       ),
       home: Navigator(
         pages: [

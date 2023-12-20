@@ -2,6 +2,7 @@ import 'dart:io';
 
 import 'package:dio/dio.dart' as dio;
 import 'package:flutter/material.dart';
+import 'package:flutter_demo2/common/global/global_theme_config.dart';
 import 'package:flutter_demo2/common/util/dio_api.dart' as api;
 import 'package:flutter_demo2/common/util/text_style.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -32,7 +33,7 @@ class PathProviderController extends GetxController {
     Map<String, String> dirMap = await getDirectorys();
     Get.bottomSheet(Container(
       height: 400.h,
-      color: Colors.white,
+      color: gColorWhite,
       child: Column(
         children: dirMap.entries
             .map(

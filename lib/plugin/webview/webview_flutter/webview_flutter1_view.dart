@@ -12,7 +12,7 @@ class WebviewFlutter1View extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: appBarStandard(title: "Webview1"),
+      appBar: gAppBar("Webview1"),
       body: _getBody(context),
     );
   }
@@ -21,7 +21,7 @@ class WebviewFlutter1View extends StatelessWidget {
     return Column(
       children: [
         _getUrlTextField(),
-        StandardTextButton(
+        gTextButton(
           "打开",
           () => Get.to(const WebviewFlutter(), binding: BindingsBuilder(() {
             var controller = Get.put<WebviewFlutterController>(WebviewFlutterController());
@@ -37,7 +37,7 @@ class WebviewFlutter1View extends StatelessWidget {
       margin: EdgeInsets.symmetric(vertical: 10.w),
       height: 40.h,
       width: 1.sw,
-      child: StandardTextField(_controller, hintText: "请输入需要打开的网址"),
+      child: gTextField(_controller, hintText: "请输入需要打开的网址"),
     );
   }
 }

@@ -11,7 +11,7 @@ class ListviewGridview2View extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: appBarStandard(title: 'Listview和Gridview测试2'),
+      appBar: gAppBar('Listview和Gridview测试2'),
       body: _getBody(context),
     );
   }

@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_demo2/common/global/global_binding.dart';
+import 'package:flutter_demo2/common/global/global_theme_dark.dart';
+import 'package:flutter_demo2/common/global/global_theme_light.dart';
 import 'package:flutter_demo2/common/util/i18n_message.dart';
 import 'package:flutter_demo2/home/home_view.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
@@ -24,21 +26,8 @@ class App extends StatelessWidget {
         // 初始化默认的全局Binding
         initialBinding: GlobalBinding(),
         // initialRoute: Routes.SPLASH,
-        theme: ThemeData(
-          primarySwatch: Colors.indigo,
-          brightness: Brightness.light,
-          textButtonTheme: TextButtonThemeData(
-            style: ButtonStyle(
-              backgroundColor: MaterialStateProperty.all(Colors.indigo),
-              minimumSize: MaterialStateProperty.all(Size(100.w, 40.h)),
-              shape: MaterialStateProperty.all(
-                RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(20.w),
-                ),
-              ),
-            ),
-          ),
-        ),
+        theme: lightTheme,
+        darkTheme: darkTheme,
         defaultTransition: Transition.zoom,
         // getPages: AppPages.pages,
         translations: I18nMessage(),

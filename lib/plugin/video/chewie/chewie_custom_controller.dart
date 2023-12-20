@@ -1,5 +1,6 @@
 import 'package:chewie/chewie.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_demo2/common/global/global_theme_config.dart';
 import 'package:flutter_demo2/common/util/text_style.dart';
 import 'package:get/get.dart';
 import 'package:video_player/video_player.dart';
@@ -42,13 +43,13 @@ class ChewieCustomController extends GetxController {
         ]),
         subtitleBuilder: (context, subtitle) => Text(
           subtitle.toString(),
-          style: size22W400(color: Colors.white),
+          style: size22W400(color: gColorWhite),
         ),
         isLive: false,
         // 如果使用自定义按钮，则控件自带按钮将不再显示
         // customControls: Align(
         //   alignment: Alignment.bottomRight,
-        //   child: StandardIconButton(Icons.close, () => Get.back(), color: Colors.white),
+        //   child: StandardIconButton(Icons.close, () => Get.back(), color: gColorWhite),
         // ),
       );
       update();

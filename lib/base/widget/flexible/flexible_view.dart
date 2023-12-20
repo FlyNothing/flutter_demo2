@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_demo2/common/global/global_theme_config.dart';
 import 'package:flutter_demo2/common/util/standard_widget.dart';
 import 'package:flutter_demo2/common/util/text_style.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -9,12 +10,12 @@ class FlexibleView extends StatelessWidget {
   final List<int> _flexList32 = [2, 3, 5];
   final List<int> _flexList41 = [1, 1, 1, 2];
   final List<int> _flexList42 = [1, 2, 3, 4];
-  final List<Color> _colorList = [Colors.red, Colors.indigo, Colors.yellow];
+  final List<Color> _colorList = [gColorRed, gColorGreen, gColorYellow];
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: appBarStandard(title: 'Flexible测试'),
+      appBar: gAppBar('Flexible测试'),
       body: _getBody(context),
     );
   }
@@ -62,7 +63,7 @@ class FlexibleView extends StatelessWidget {
     return [
       Padding(
         padding: EdgeInsets.symmetric(vertical: 5.h),
-        child: Text("flex:${flexList.join("/")}  fit:${fit.name}", style: size14W600(color: Colors.orange)),
+        child: Text("flex:${flexList.join("/")}  fit:${fit.name}", style: size14W600(color: gColorOrange)),
       ),
       Row(
         children: List.generate(
@@ -89,7 +90,7 @@ class FlexibleView extends StatelessWidget {
     return [
       Padding(
         padding: EdgeInsets.symmetric(vertical: 5.h),
-        child: Text("flex:${flexList.join("/")}", style: size14W600(color: Colors.orange)),
+        child: Text("flex:${flexList.join("/")}", style: size14W600(color: gColorOrange)),
       ),
       Row(
         children: List.generate(

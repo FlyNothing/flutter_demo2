@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_demo2/base/widget/textfield/text_field_border_controller.dart';
+import 'package:flutter_demo2/common/global/global_theme_config.dart';
 import 'package:flutter_demo2/common/util/standard_widget.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
@@ -10,7 +11,7 @@ class TextFieldBorderView extends GetView<TextFieldBorderController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: appBarStandard(title: "TextField边框"),
+      appBar: gAppBar("TextField边框"),
       body: _getBody(),
     );
   }
@@ -28,7 +29,7 @@ class TextFieldBorderView extends GetView<TextFieldBorderController> {
                 gapPadding: 0,
               ),
               focusedBorder: OutlineInputBorder(
-                borderSide: BorderSide(width: 1, color: Colors.yellow),
+                borderSide: BorderSide(width: 1, color: gColorYellow),
                 gapPadding: 0,
               ),
               hintText: "hintText",
@@ -43,11 +44,11 @@ class TextFieldBorderView extends GetView<TextFieldBorderController> {
             decoration: const InputDecoration(
               contentPadding: EdgeInsets.all(0.0),
               enabledBorder: OutlineInputBorder(
-                borderSide: BorderSide(width: 1, color: Colors.purple),
+                borderSide: BorderSide(width: 1, color: gColorPurple),
                 gapPadding: 0,
               ),
               focusedBorder: OutlineInputBorder(
-                borderSide: BorderSide(width: 1, color: Colors.yellow),
+                borderSide: BorderSide(width: 1, color: gColorYellow),
                 gapPadding: 0,
               ),
               hintText: "hintText",
@@ -62,11 +63,11 @@ class TextFieldBorderView extends GetView<TextFieldBorderController> {
             decoration: const InputDecoration(
               contentPadding: EdgeInsets.all(0.0),
               errorBorder: OutlineInputBorder(
-                borderSide: BorderSide(width: 1, color: Colors.red),
+                borderSide: BorderSide(width: 1, color: gColorRed),
                 gapPadding: 0,
               ),
               focusedErrorBorder: OutlineInputBorder(
-                borderSide: BorderSide(width: 1, color: Colors.indigo),
+                borderSide: BorderSide(width: 1, color: gColorLightPrimary),
                 gapPadding: 0,
               ),
               errorText: "errorText",
@@ -82,7 +83,7 @@ class TextFieldBorderView extends GetView<TextFieldBorderController> {
             decoration: const InputDecoration(
               contentPadding: EdgeInsets.all(0.0),
               disabledBorder: OutlineInputBorder(
-                borderSide: BorderSide(width: 1, color: Colors.green),
+                borderSide: BorderSide(width: 1, color: gColorGreen),
                 gapPadding: 0,
               ),
             ),

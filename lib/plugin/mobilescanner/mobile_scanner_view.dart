@@ -1,6 +1,7 @@
 import 'dart:io';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_demo2/common/global/global_theme_config.dart';
 import 'package:flutter_demo2/common/util/standard_widget.dart';
 import 'package:flutter_demo2/plugin/mobilescanner/mobile_scanner_controller.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
@@ -15,7 +16,7 @@ class MobileScannerView extends GetView<MobileScannerGetxController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: appBarStandard(title: '扫描二维码'),
+      appBar: gAppBar('扫描二维码'),
       body: _getBody(context),
     );
   }
@@ -103,7 +104,7 @@ class MobileScannerView extends GetView<MobileScannerGetxController> {
         iconSize: 30.h,
         icon: Icon(
           iconData,
-          color: Colors.white,
+          color: gColorWhite,
           size: 30.h,
         ),
         onPressed: onPressed,

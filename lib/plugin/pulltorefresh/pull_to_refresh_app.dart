@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_demo2/common/global/global_theme_config.dart';
 import 'package:flutter_demo2/common/page/base_menu_view.dart';
 import 'package:flutter_demo2/plugin/pulltorefresh/pull_to_refresh_menu_config.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
@@ -29,7 +30,7 @@ class PullToRefreshApp extends StatelessWidget {
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
         theme: ThemeData(
-          primarySwatch: Colors.indigo,
+          primarySwatch: gColorLightPrimary,
         ),
         home: BaseMenuView("PullToRefresh", pullToRefreshMenuList),
       ),

@@ -10,7 +10,7 @@ class EasyLoadingView extends GetView<EasyLoadingController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: appBarStandard(title: 'EasyLoading测试'),
+      appBar: gAppBar('EasyLoading测试'),
       body: _getBody(context),
     );
   }
@@ -22,14 +22,14 @@ class EasyLoadingView extends GetView<EasyLoadingController> {
         spacing: 20.w,
         runSpacing: 10.h,
         children: [
-          StandardTextButton('push', () => controller.push()),
-          StandardTextButton('dismiss', () => controller.dismiss()),
-          StandardTextButton('show', () => controller.show()),
-          StandardTextButton('showInfo', () => controller.showInfo()),
-          StandardTextButton('showToast', () => controller.showToast()),
-          StandardTextButton('showSuccess', () => controller.showSuccess()),
-          StandardTextButton('showError', () => controller.showError()),
-          StandardTextButton('showProgress', () => controller.showProgress()),
+          gTextButton('push', () => controller.push()),
+          gTextButton('dismiss', () => controller.dismiss()),
+          gTextButton('show', () => controller.show()),
+          gTextButton('showInfo', () => controller.showInfo()),
+          gTextButton('showToast', () => controller.showToast()),
+          gTextButton('showSuccess', () => controller.showSuccess()),
+          gTextButton('showError', () => controller.showError()),
+          gTextButton('showProgress', () => controller.showProgress()),
         ],
       ),
     );

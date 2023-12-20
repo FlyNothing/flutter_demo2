@@ -12,7 +12,7 @@ class ImagePickerVideoView extends GetView<ImagePickerVideoController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: appBarStandard(title: '选择视频'),
+      appBar: gAppBar('选择视频'),
       body: _getBody(context),
     );
   }
@@ -28,8 +28,8 @@ class ImagePickerVideoView extends GetView<ImagePickerVideoController> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
-                  StandardTextButton("拍照", () => controller.pickVideo(ImageSource.camera)),
-                  StandardTextButton("相册", () => controller.pickVideo(ImageSource.gallery)),
+                  gTextButton("拍照", () => controller.pickVideo(ImageSource.camera)),
+                  gTextButton("相册", () => controller.pickVideo(ImageSource.gallery)),
                 ],
               ),
               Padding(padding: EdgeInsets.symmetric(vertical: 10.h)),

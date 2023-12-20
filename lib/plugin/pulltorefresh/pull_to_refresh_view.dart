@@ -40,7 +40,7 @@ class _PullToRefreshViewState extends State<PullToRefreshView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: appBarStandard(title: 'PullToRefresh'),
+      appBar: gAppBar('PullToRefresh'),
       body: _getBody(context),
     );
   }
@@ -77,7 +77,7 @@ class _PullToRefreshViewState extends State<PullToRefreshView> {
               context,
               MaterialPageRoute(
                 builder: (context) => Scaffold(
-                  appBar: appBarStandard(title: "二楼"),
+                  appBar: gAppBar("二楼"),
                   body: Center(
                     child: Image.asset("assets/images/avatar.png"),
                   ),

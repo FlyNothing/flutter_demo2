@@ -11,7 +11,7 @@ class FlutterInappwebview extends GetView<FlutterInappwebController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: appBarStandard(title: "Inappwebview1"),
+      appBar: gAppBar("Inappwebview1"),
       body: _getBody(context),
     );
   }

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_demo2/common/global/global_theme_config.dart';
 import 'package:flutter_demo2/common/util/standard_widget.dart';
 import 'package:flutter_demo2/common/util/text_style.dart';
 import 'package:flutter_demo2/plugin/provider/entity/order_record_info.dart';
@@ -14,7 +15,7 @@ class ProviderOrderOverviewView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: appBarStandard(title: 'Provider'),
+      appBar: gAppBar('Provider'),
       body: _getBody(context),
     );
   }
@@ -82,17 +83,17 @@ class ProviderOrderOverviewView extends StatelessWidget {
           TableRow(
             children: [
               _getTableTitle("收入金额:"),
-              _getTableContent("￥ ${getPriceString(context.select((OrderRecordOverview order) => order.incomeSum))}", color: Colors.green),
+              _getTableContent("￥ ${getPriceString(context.select((OrderRecordOverview order) => order.incomeSum))}", color: gColorGreen),
               _getTableTitle("收入笔数:"),
-              _getTableContent(context.select((OrderRecordOverview order) => order.incomeCnt).toString(), color: Colors.green),
+              _getTableContent(context.select((OrderRecordOverview order) => order.incomeCnt).toString(), color: gColorGreen),
             ],
           ),
           TableRow(
             children: [
               _getTableTitle("支出金额:"),
-              _getTableContent("￥ ${getPriceString(context.select((OrderRecordOverview order) => order.expenditureSum))}", color: Colors.red),
+              _getTableContent("￥ ${getPriceString(context.select((OrderRecordOverview order) => order.expenditureSum))}", color: gColorRed),
               _getTableTitle("支出笔数:"),
-              _getTableContent(context.select((OrderRecordOverview order) => order.expenditureCnt).toString(), color: Colors.red),
+              _getTableContent(context.select((OrderRecordOverview order) => order.expenditureCnt).toString(), color: gColorRed),
             ],
           ),
         ],
@@ -125,32 +126,32 @@ class ProviderOrderOverviewView extends StatelessWidget {
     );
   }
 
-  StandardTextButton _getAddRecordButton(BuildContext context) {
+  TextButton _getAddRecordButton(BuildContext context) {
     TextEditingController? amountController = TextEditingController();
     int type = 0;
-    return StandardTextButton("新增", () {
+    return gTextButton("新增", () {
       Future<OrderRecordInfo?> res = Get.dialog(
         AlertDialog(
-          backgroundColor: Colors.white,
+          backgroundColor: gColorWhite,
           content: SizedBox(
             height: 0.2.sh,
             child: Column(
               children: [
                 _getPadding(
-                  StandardDropdownButtonFormField(orderTypeTextMap, (dynamic value) {
+                  gDropdownButtonFormField(orderTypeTextMap, (dynamic value) {
                     type = value ?? 0;
                   }),
                 ),
-                _getPadding(StandardTextField(amountController, hintText: "请输入金额", keyboardType: TextInputType.number)),
+                _getPadding(gTextField(amountController, hintText: "请输入金额", keyboardType: TextInputType.number)),
               ],
             ),
           ),
           actions: [
             _getPadding(
-              StandardTextButton("取消", () => Get.back()),
+              gTextButton("取消", () => Get.back()),
             ),
             _getPadding(
-              StandardTextButton("确认", () => Get.back(result: OrderRecordInfo(double.parse(amountController.text), type))),
+              gTextButton("确认", () => Get.back(result: OrderRecordInfo(double.parse(amountController.text), type))),
             )
           ],
           actionsAlignment: MainAxisAlignment.center,

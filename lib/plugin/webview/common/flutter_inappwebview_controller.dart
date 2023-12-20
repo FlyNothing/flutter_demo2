@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_demo2/common/global/global_theme_config.dart';
 import 'package:flutter_inappwebview/flutter_inappwebview.dart';
 import 'package:get/get.dart';
 
@@ -11,7 +12,7 @@ class FlutterInappwebController extends GetxController {
     pullToRefreshController = GetPlatform.isWeb
         ? null
         : PullToRefreshController(
-            settings: PullToRefreshSettings(color: Colors.indigo, backgroundColor: Colors.green),
+            settings: PullToRefreshSettings(color: gColorLightPrimary, backgroundColor: gColorGreen),
             onRefresh: () => debugPrint("PullToRefreshController onRefresh"),
           );
   }

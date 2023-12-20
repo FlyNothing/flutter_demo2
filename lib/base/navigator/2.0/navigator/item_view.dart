@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_demo2/common/global/global_theme_config.dart';
 import 'package:flutter_demo2/common/util/standard_widget.dart';
 import 'package:flutter_demo2/common/util/text_style.dart';
 
@@ -10,7 +11,7 @@ class ItemView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: appBarStandard(title: '路由跳转'),
+      appBar: gAppBar('路由跳转'),
       body: _getBody(context),
     );
   }
@@ -18,8 +19,8 @@ class ItemView extends StatelessWidget {
   Widget _getBody(BuildContext context) {
     return Container(
       alignment: Alignment.center,
-      decoration: BoxDecoration(border: Border.all(width: 1, color: Colors.red)),
-      child: Text("你选择的选项是：$_item", textAlign: TextAlign.center, style: size16W500(color: Colors.red)),
+      decoration: BoxDecoration(border: Border.all(width: 1, color: gColorRed)),
+      child: Text("你选择的选项是：$_item", textAlign: TextAlign.center, style: size16W500(color: gColorRed)),
     );
   }
 }

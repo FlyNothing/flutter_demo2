@@ -11,7 +11,7 @@ class ImagePickerImageView extends GetView<ImagePickerImageController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: appBarStandard(title: '选择图片'),
+      appBar: gAppBar('选择图片'),
       body: _getBody(context),
     );
   }
@@ -27,9 +27,9 @@ class ImagePickerImageView extends GetView<ImagePickerImageController> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
-                  StandardTextButton("拍照", () => controller.pickImage(ImageSource.camera)),
-                  StandardTextButton("相册", () => controller.pickImage(ImageSource.gallery)),
-                  StandardTextButton("相册列表", () => controller.pickMultiImage()),
+                  gTextButton("拍照", () => controller.pickImage(ImageSource.camera)),
+                  gTextButton("相册", () => controller.pickImage(ImageSource.gallery)),
+                  gTextButton("相册列表", () => controller.pickMultiImage()),
                 ],
               ),
               Padding(padding: EdgeInsets.symmetric(vertical: 10.h)),

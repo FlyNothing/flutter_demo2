@@ -7,7 +7,7 @@ class FutureView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: appBarStandard(title: 'Future测试'),
+      appBar: gAppBar('Future测试'),
       body: _getBody(context),
     );
   }

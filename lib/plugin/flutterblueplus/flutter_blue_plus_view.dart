@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_blue_plus/flutter_blue_plus.dart';
+import 'package:flutter_demo2/common/global/global_theme_config.dart';
 import 'package:flutter_demo2/common/util/standard_widget.dart';
 import 'package:flutter_demo2/common/util/text_style.dart';
 import 'package:flutter_demo2/plugin/flutterblueplus/flutter_blue_plus_controller.dart';
@@ -12,7 +13,7 @@ class FlutterBluePlusView extends GetView<FlutterBluePlusController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: appBarStandard(title: 'FlutterBluePlus测试'),
+      appBar: gAppBar('FlutterBluePlus测试'),
       body: _getBody(),
     );
   }
@@ -53,7 +54,7 @@ class FlutterBluePlusView extends GetView<FlutterBluePlusController> {
             alignment: Alignment.center,
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(10.w),
-              color: Colors.grey.shade200,
+              color: gColorGrey200,
             ),
             child: Text(controller.devs[index].advName, overflow: TextOverflow.ellipsis, maxLines: 1, style: size16W500()),
           ),

@@ -7,7 +7,7 @@ class TestView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: appBarStandard(title: 'EasyLoading测试'),
+      appBar: gAppBar('EasyLoading测试'),
       body: _getBody(context),
     );
   }

@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_date_picker_timeline/flutter_date_picker_timeline.dart';
+import 'package:flutter_demo2/common/global/global_theme_config.dart';
 import 'package:flutter_demo2/common/util/date.dart';
 import 'package:flutter_demo2/common/util/standard_widget.dart';
 import 'package:flutter_demo2/common/util/text_style.dart';
@@ -15,7 +16,7 @@ class FlutterDatePickerTimelineView extends GetView<FlutterDatePickerTimelineCon
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: appBarStandard(title: '水平日期选择器测试2'),
+      appBar: gAppBar('水平日期选择器测试2'),
       body: _getBody(context),
     );
   }
@@ -42,8 +43,8 @@ class FlutterDatePickerTimelineView extends GetView<FlutterDatePickerTimelineCon
         unselectedItemWidth: 30.w,
         unselectedItemTextStyle: size16W400(),
         selectedItemWidth: 30.w,
-        selectedItemBackgroundColor: Colors.indigo,
-        selectedItemTextStyle: size16W400(color: Colors.white),
+        selectedItemBackgroundColor: gColorLightPrimary,
+        selectedItemTextStyle: size16W400(color: gColorWhite),
         itemRadius: 30.w,
         selectedItemMargin: const EdgeInsets.symmetric(horizontal: 10),
         unselectedItemMargin: const EdgeInsets.symmetric(horizontal: 10),

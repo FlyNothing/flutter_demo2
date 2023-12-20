@@ -1,5 +1,6 @@
 import 'dart:math' as math;
 import 'package:flutter/material.dart';
+import 'package:flutter_demo2/common/global/global_theme_config.dart';
 import 'package:flutter_demo2/common/util/standard_widget.dart';
 import 'package:flutter_demo2/common/util/text_style.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -10,7 +11,7 @@ class TransformView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: appBarStandard(title: 'Transform测试'),
+      appBar: gAppBar('Transform测试'),
       body: _getBody(context),
     );
   }
@@ -49,12 +50,12 @@ class TransformView extends StatelessWidget {
       width: 0.4.sw,
       alignment: Alignment.center,
       decoration: BoxDecoration(
-        color: Colors.lightGreen,
+        color: gColorGreen,
         border: Border.all(width: 1),
       ),
       child: Text(
         "测试文本",
-        style: size14W400(color: Colors.red),
+        style: size14W400(color: gColorRed),
       ),
     );
   }

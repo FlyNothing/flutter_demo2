@@ -1,15 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_demo2/common/global/global_theme_config.dart';
 import 'package:flutter_demo2/common/util/text_style.dart';
 
 List<Widget> widgets = [
-  _genWidget("1", Colors.red.withOpacity(0.8)),
-  _genWidget("2", Colors.orange.withOpacity(0.8)),
-  _genWidget("3", Colors.yellow.withOpacity(0.8)),
-  _genWidget("4", Colors.green.withOpacity(0.8)),
-  _genWidget("5", Colors.cyan.withOpacity(0.8)),
-  _genWidget("6", Colors.indigo.withOpacity(0.8)),
-  _genWidget("7", Colors.purple.withOpacity(0.8)),
-  _genWidget("8", Colors.black.withOpacity(0.8)),
+  _genWidget("1", gColorRed),
+  _genWidget("2", gColorOrange),
+  _genWidget("3", gColorYellow),
+  _genWidget("4", gColorGreen),
+  _genWidget("5", gColorBlue),
+  _genWidget("6", gColorLightPrimary),
+  _genWidget("7", gColorPurple),
+  _genWidget("8", gColorBlack),
 ];
 
 Widget _genWidget(String text, Color color) {

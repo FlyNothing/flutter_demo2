@@ -12,7 +12,7 @@ class PhotoViewCtrlView extends GetView<PhotoViewCtrlController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: appBarStandard(title: 'PhotoViewController'),
+      appBar: gAppBar('PhotoViewController'),
       body: _getBody(context),
     );
   }
@@ -35,7 +35,7 @@ class PhotoViewCtrlView extends GetView<PhotoViewCtrlController> {
           alignment: Alignment.bottomCenter,
           child: Padding(
             padding: EdgeInsets.symmetric(vertical: 10.h),
-            child: StandardTextButton("相册", () => controller.pickImage(ImageSource.gallery)),
+            child: gTextButton("相册", () => controller.pickImage(ImageSource.gallery)),
           ),
         )
       ],

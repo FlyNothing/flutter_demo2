@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_demo2/base/widget/valuenotifier/value_notifier_controller.dart';
+import 'package:flutter_demo2/common/global/global_theme_config.dart';
 import 'package:flutter_demo2/common/util/standard_widget.dart';
 import 'package:get/get.dart';
 
@@ -9,7 +10,7 @@ class ValueNotifierView extends GetView<ValueNotifierController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: appBarStandard(title: 'ValueNotifier测试'),
+      appBar: gAppBar('ValueNotifier测试'),
       body: _getBody(context),
     );
   }
@@ -31,16 +32,16 @@ class ValueNotifierView extends GetView<ValueNotifierController> {
     );
   }
 
-  StandardIconButton _getNameButton(BuildContext context) {
-    return StandardIconButton(
+  IconButton _getNameButton(BuildContext context) {
+    return gIconButton(
       Icons.navigate_next,
       () {
         Future<String?> res = Get.dialog(AlertDialog(
-          backgroundColor: Colors.white,
-          content: StandardTextField(controller.nameController, hintText: "请输入姓名"),
+          backgroundColor: gColorGrey400,
+          content: gTextField(controller.nameController, hintText: "请输入姓名"),
           actions: [
-            StandardTextButton("取消", () => Get.back()),
-            StandardTextButton("确认", () => Get.back(result: controller.nameController.text)),
+            gTextButton("取消", () => Get.back()),
+            gTextButton("确认", () => Get.back(result: controller.nameController.text)),
           ],
           actionsAlignment: MainAxisAlignment.center,
         ));
@@ -49,17 +50,17 @@ class ValueNotifierView extends GetView<ValueNotifierController> {
     );
   }
 
-  StandardIconButton _getAgeButton(BuildContext context) {
-    return StandardIconButton(
+  IconButton _getAgeButton(BuildContext context) {
+    return gIconButton(
       Icons.navigate_next,
       () {
         Future<int?> res = Get.dialog(
           AlertDialog(
-            backgroundColor: Colors.white,
-            content: StandardTextField(controller.ageController, hintText: "年龄"),
+            backgroundColor: gColorGrey400,
+            content: gTextField(controller.ageController, hintText: "年龄"),
             actions: [
-              StandardTextButton("取消", () => Get.back()),
-              StandardTextButton("确认", () => Get.back(result: int.parse(controller.ageController.text))),
+              gTextButton("取消", () => Get.back()),
+              gTextButton("确认", () => Get.back(result: int.parse(controller.ageController.text))),
             ],
             actionsAlignment: MainAxisAlignment.center,
           ),

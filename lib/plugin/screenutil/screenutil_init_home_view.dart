@@ -9,7 +9,7 @@ class ScreenutilInitHomeView extends StatelessWidget {
   Widget build(BuildContext context) {
     ScreenUtil.init(context, designSize: const Size(200, 600));
     return Scaffold(
-      appBar: appBarStandard(title: 'ScreenutilInitHomePage'),
+      appBar: gAppBar('ScreenutilInitHomePage'),
       body: Align(
         alignment: Alignment.center,
         child: Column(

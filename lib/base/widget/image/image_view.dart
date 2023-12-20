@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_demo2/base/widget/image/image_controller.dart';
+import 'package:flutter_demo2/common/global/global_theme_config.dart';
 import 'package:flutter_demo2/common/util/standard_widget.dart';
 import 'package:flutter_demo2/common/util/text_style.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -11,7 +12,7 @@ class ImageView extends GetView<ImageController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: appBarStandard(title: 'Image测试'),
+      appBar: gAppBar('Image测试'),
       body: _getBody(context),
     );
   }
@@ -21,7 +22,7 @@ class ImageView extends GetView<ImageController> {
       child: Column(
         children: [
           _getUrlTextField(),
-          StandardTextButton("刷新图片", () => controller.refreshImageUrl()),
+          gTextButton("刷新图片", () => controller.refreshImageUrl()),
           _getImage(),
           _getFadeInImage(),
         ],
@@ -37,7 +38,7 @@ class ImageView extends GetView<ImageController> {
           Obx(() => controller.imageUrl.value.isEmpty ? Image.asset("assets/images/avatar.png") : Image.network(controller.imageUrl.value)),
           Text(
             "Image",
-            style: size16W400(color: Colors.white),
+            style: size16W400(color: gColorWhite),
           )
         ],
       ),
@@ -57,21 +58,21 @@ class ImageView extends GetView<ImageController> {
                     placeholderErrorBuilder: (context, error, stackTrace) {
                       return Text(
                         "Placeholder加载错误",
-                        style: size16W400(color: Colors.black),
+                        style: size16W400(color: gColorBlack),
                       );
                     },
                     image: NetworkImage(controller.imageUrl.value),
                     imageErrorBuilder: (context, error, stackTrace) {
                       return Text(
                         "图片加载错误",
-                        style: size16W400(color: Colors.black),
+                        style: size16W400(color: gColorBlack),
                       );
                     },
                   ),
           ),
           Text(
             "FadeInImage",
-            style: size16W400(color: Colors.white),
+            style: size16W400(color: gColorWhite),
           )
         ],
       ),
@@ -83,7 +84,7 @@ class ImageView extends GetView<ImageController> {
       margin: EdgeInsets.symmetric(vertical: 10.w),
       height: 40.h,
       width: 1.sw,
-      child: StandardTextField(controller.textController, hintText: "请输入图片下载地址"),
+      child: gTextField(controller.textController, hintText: "请输入图片下载地址"),
     );
   }
 }

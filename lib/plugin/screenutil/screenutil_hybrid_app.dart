@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_demo2/common/global/global_theme_config.dart';
 import 'package:flutter_demo2/plugin/screenutil/screenutil_init_home_view.dart';
 
 /// 混合开发 - 部分主题
@@ -10,7 +11,7 @@ class ScreenutilHybridPartThemeApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        primarySwatch: Colors.green,
+        primarySwatch: gColorGreen,
       ),
       home: const ScreenutilInitHomeView(),
     );

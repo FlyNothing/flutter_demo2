@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_demo2/base/navigator/1.0/router_view.dart';
+import 'package:flutter_demo2/common/global/global_theme_config.dart';
 import 'package:flutter_demo2/common/util/standard_widget.dart';
 import 'package:flutter_demo2/common/util/text_style.dart';
 
@@ -11,7 +12,7 @@ class OriginView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: appBarStandard(title: '路由跳转'),
+      appBar: gAppBar('路由跳转'),
       body: _getBody(context),
     );
   }
@@ -21,8 +22,8 @@ class OriginView extends StatelessWidget {
       child: Center(
         child: Container(
           alignment: Alignment.center,
-          decoration: BoxDecoration(border: Border.all(width: 1, color: Colors.red)),
-          child: Text("This is a home page.", textAlign: TextAlign.center, style: size16W500(color: Colors.red)),
+          decoration: BoxDecoration(border: Border.all(width: 1, color: gColorRed)),
+          child: Text("This is a home page.", textAlign: TextAlign.center, style: size16W500(color: gColorRed)),
         ),
       ),
       onTap: () => Navigator.push(

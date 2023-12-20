@@ -1,5 +1,6 @@
 import 'package:date_picker_timeline/date_picker_timeline.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_demo2/common/global/global_theme_config.dart';
 import 'package:flutter_demo2/common/util/date.dart';
 import 'package:flutter_demo2/common/util/standard_widget.dart';
 import 'package:flutter_demo2/common/util/text_style.dart';
@@ -13,7 +14,7 @@ class DatePickerTimelineView extends GetView<DatePickerTimelineController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: appBarStandard(title: '水平日期选择器测试1'),
+      appBar: gAppBar('水平日期选择器测试1'),
       body: _getBody(context),
     );
   }
@@ -35,9 +36,9 @@ class DatePickerTimelineView extends GetView<DatePickerTimelineController> {
         width: 60.w,
         height: 100.h,
         controller: DatePickerController(),
-        selectedTextColor: Colors.white,
-        selectionColor: Colors.indigo,
-        deactivatedColor: Colors.black12,
+        selectedTextColor: gColorWhite,
+        selectionColor: gColorLightPrimary,
+        deactivatedColor: gColorBlack12,
         initialSelectedDate: controller.selectDay.value,
         activeDates: [
           DateTime.now().add(const Duration(days: -2)),

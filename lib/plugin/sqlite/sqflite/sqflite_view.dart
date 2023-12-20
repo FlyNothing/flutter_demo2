@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_demo2/common/global/global_theme_config.dart';
 import 'package:flutter_demo2/common/util/standard_widget.dart';
 import 'package:flutter_demo2/common/util/text_style.dart';
 import 'package:flutter_demo2/plugin/sqlite/sqflite/sqflite_controller.dart';
@@ -11,7 +12,7 @@ class SqfliteView extends GetView<SqfliteController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: appBarStandard(title: 'Sqflite测试'),
+      appBar: gAppBar('Sqflite测试'),
       body: _getBody(context),
     );
   }
@@ -36,7 +37,7 @@ class SqfliteView extends GetView<SqfliteController> {
           3: FixedColumnWidth(0.3.sw),
           4: FixedColumnWidth(0.2.sw),
         },
-        border: TableBorder.all(width: 1.h, color: Colors.grey),
+        border: TableBorder.all(width: 1.h, color: gColorGrey),
         children: _getCustomerTableList(),
       ),
     );
@@ -52,7 +53,7 @@ class SqfliteView extends GetView<SqfliteController> {
           _getTableText(controller.userList[index].age.toString()),
           _getTableText(controller.userList[index].addr ?? ""),
           GestureDetector(
-            child: Center(child: Text("删除", style: size14W500(color: Colors.indigo))),
+            child: Center(child: Text("删除", style: size14W500(color: gColorLightPrimary))),
             onTap: () => controller.delete(index),
           )
         ],
@@ -65,25 +66,25 @@ class SqfliteView extends GetView<SqfliteController> {
   }
 
   Widget _addUserButton() {
-    return StandardTextButton("新增", () {
+    return gTextButton("新增", () {
       Future<String?> res = Get.dialog(
         AlertDialog(
-          backgroundColor: Colors.white,
+          backgroundColor: gColorWhite,
           content: SizedBox(
             height: 0.25.sh,
             child: Column(
               children: [
-                StandardTextField(controller.nameController, hintText: "请输入姓名"),
+                gTextField(controller.nameController, hintText: "请输入姓名"),
                 Padding(padding: EdgeInsets.only(top: 0.02.sh)),
-                StandardTextField(controller.ageController, hintText: "请输入年龄", keyboardType: TextInputType.number),
+                gTextField(controller.ageController, hintText: "请输入年龄", keyboardType: TextInputType.number),
                 Padding(padding: EdgeInsets.only(top: 0.02.sh)),
-                StandardTextField(controller.addrController, hintText: "请输入地址")
+                gTextField(controller.addrController, hintText: "请输入地址")
               ],
             ),
           ),
           actions: [
-            StandardTextButton("取消", () => Get.back()),
-            StandardTextButton("确认", () => Get.back(result: controller.nameController.text)),
+            gTextButton("取消", () => Get.back()),
+            gTextButton("确认", () => Get.back(result: controller.nameController.text)),
           ],
           actionsAlignment: MainAxisAlignment.center,
         ),

@@ -10,7 +10,7 @@ class ProviderView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: appBarStandard(title: 'Provider'),
+      appBar: gAppBar('Provider'),
       body: Provider<StudentInfo>(
         create: (_) => StudentInfo("Andy"),
         child: const ProviderSubView(),

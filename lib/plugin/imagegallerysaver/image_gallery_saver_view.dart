@@ -10,7 +10,7 @@ class ImageGallerySaverView extends GetView<ImageGallerySaverController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: appBarStandard(title: 'ImageGallerySaver测试'),
+      appBar: gAppBar('ImageGallerySaver测试'),
       body: _getBody(context),
     );
   }
@@ -22,8 +22,8 @@ class ImageGallerySaverView extends GetView<ImageGallerySaverController> {
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
-            StandardTextButton("保存到相册", () => controller.saveToGallery()),
-            StandardTextButton("查看相册", () => controller.pickImage()),
+            gTextButton("保存到相册", () => controller.saveToGallery()),
+            gTextButton("查看相册", () => controller.pickImage()),
           ],
         )
       ],
@@ -35,7 +35,7 @@ class ImageGallerySaverView extends GetView<ImageGallerySaverController> {
       margin: EdgeInsets.symmetric(vertical: 10.w),
       height: 40.h,
       width: 1.sw,
-      child: StandardTextField(controller.controller, hintText: "请输入图片下载地址"),
+      child: gTextField(controller.controller, hintText: "请输入图片下载地址"),
     );
   }
 }

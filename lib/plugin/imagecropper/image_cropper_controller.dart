@@ -1,6 +1,6 @@
 import 'dart:io';
 
-import 'package:flutter/material.dart';
+import 'package:flutter_demo2/common/global/global_theme_config.dart';
 import 'package:get/get.dart';
 import 'package:image_cropper/image_cropper.dart';
 import 'package:image_picker/image_picker.dart';
@@ -33,8 +33,8 @@ class ImageCropperController extends GetxController {
       uiSettings: [
         AndroidUiSettings(
           toolbarTitle: 'Cropper',
-          toolbarColor: Colors.indigo,
-          toolbarWidgetColor: Colors.white,
+          toolbarColor: gColorLightPrimary,
+          toolbarWidgetColor: gColorWhite,
           initAspectRatio: CropAspectRatioPreset.square,
           lockAspectRatio: false,
         ),

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_demo2/common/global/global_theme_config.dart';
 import 'package:flutter_demo2/common/util/standard_widget.dart';
 import 'package:flutter_demo2/common/util/text_style.dart';
 import 'package:flutter_demo2/plugin/sharedpreferences/shared_preferences_controller.dart';
@@ -11,7 +12,7 @@ class SharedPreferencesView extends GetView<SharedPreferencesController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: appBarStandard(title: 'SharedPreferences测试'),
+      appBar: gAppBar('SharedPreferences测试'),
       body: _getBody(context),
     );
   }
@@ -25,7 +26,7 @@ class SharedPreferencesView extends GetView<SharedPreferencesController> {
             width: double.infinity,
             child: Text(
               "当前值为: ${controller.intValue}",
-              style: size22W600(color: Colors.red),
+              style: size22W600(color: gColorRed),
               textAlign: TextAlign.center,
             ),
           ),
@@ -33,8 +34,8 @@ class SharedPreferencesView extends GetView<SharedPreferencesController> {
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
-            StandardTextButton("加一", () => controller.increment()),
-            StandardTextButton("减一", () => controller.decrement()),
+            gTextButton("加一", () => controller.increment()),
+            gTextButton("减一", () => controller.decrement()),
           ],
         )
       ],

@@ -11,7 +11,7 @@ class ListViewView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: appBarStandard(title: '路由跳转'),
+      appBar: gAppBar('路由跳转'),
       body: _getBody(context),
     );
   }

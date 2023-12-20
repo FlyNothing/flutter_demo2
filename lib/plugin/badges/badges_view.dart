@@ -1,5 +1,6 @@
 import 'package:badges/badges.dart' as badges;
 import 'package:flutter/material.dart';
+import 'package:flutter_demo2/common/global/global_theme_config.dart';
 import 'package:flutter_demo2/common/util/standard_widget.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
 
@@ -9,7 +10,7 @@ class BadgesView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: appBarStandard(title: 'Badges测试'),
+      appBar: gAppBar('Badges测试'),
       body: _getBody(context),
     );
   }
@@ -31,13 +32,13 @@ class BadgesView extends StatelessWidget {
           child: badges.Badge(
             badgeContent: const Text('2'),
             position: badges.BadgePosition.bottomStart(),
-            child: StandardTextButton("Button", () {}),
+            child: gTextButton("Button", () {}),
           ),
         ),
         Padding(
           padding: const EdgeInsets.all(10),
           child: badges.Badge(
-            badgeColor: Colors.indigo,
+            badgeColor: gColorLightPrimary,
             badgeContent: const Text('3'),
             position: badges.BadgePosition.bottomEnd(),
             child: const Text("文字的蓝色徽标"),
@@ -112,13 +113,13 @@ class BadgesView extends StatelessWidget {
             children: [
               badges.Badge(
                 ignorePointer: true,
-                badgeContent: StandardIconButton(Icons.ads_click, () => EasyLoading.showToast("禁用")),
+                badgeContent: gIconButton(Icons.ads_click, () => EasyLoading.showToast("禁用")),
                 position: badges.BadgePosition.bottomEnd(),
                 child: const Text("禁用徽标互动"),
               ),
               badges.Badge(
                 ignorePointer: false,
-                badgeContent: StandardIconButton(Icons.ads_click, () => EasyLoading.showToast("允许")),
+                badgeContent: gIconButton(Icons.ads_click, () => EasyLoading.showToast("允许")),
                 position: badges.BadgePosition.bottomEnd(),
                 child: const Text("允许徽标互动"),
               )

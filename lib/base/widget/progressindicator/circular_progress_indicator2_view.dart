@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_demo2/base/widget/progressindicator/circular_progress_indicator2_controller.dart';
+import 'package:flutter_demo2/common/global/global_theme_config.dart';
 import 'package:flutter_demo2/common/util/standard_widget.dart';
 import 'package:flutter_demo2/common/util/text_style.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -11,7 +12,7 @@ class CircularProgressIndicator2View extends GetView<CircularProgressIndicator2C
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: appBarStandard(title: '圆形指示器'),
+      appBar: gAppBar('圆形指示器'),
       body: _getBody(context),
     );
   }
@@ -43,14 +44,14 @@ class CircularProgressIndicator2View extends GetView<CircularProgressIndicator2C
               width: 80.w,
               height: 80.h,
               child: CircularProgressIndicator(
-                backgroundColor: Colors.grey[400],
+                backgroundColor: gColorGrey400,
                 value: controller.percent / 100,
                 strokeWidth: 6,
               ),
             ),
             Text(
               "${controller.percent}%",
-              style: size16W400(color: Colors.indigo),
+              style: size16W400(color: gColorLightPrimary),
             )
           ],
         ),
@@ -61,7 +62,7 @@ class CircularProgressIndicator2View extends GetView<CircularProgressIndicator2C
   Padding _getContent() {
     return Padding(
       padding: EdgeInsets.only(top: 40.h, bottom: 40.h),
-      child: Text("正在加载中", style: size16W600(color: Colors.indigo)),
+      child: Text("正在加载中", style: size16W600(color: gColorLightPrimary)),
     );
   }
 }

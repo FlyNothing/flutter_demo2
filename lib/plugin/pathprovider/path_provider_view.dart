@@ -12,7 +12,7 @@ class PathProviderView extends GetView<PathProviderController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: appBarStandard(title: 'PathProvider测试'),
+      appBar: gAppBar('PathProvider测试'),
       body: _getBody(context),
     );
   }
@@ -21,18 +21,18 @@ class PathProviderView extends GetView<PathProviderController> {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        StandardTextButton("获取目录", () => controller.showDirectorys()),
+        gTextButton("获取目录", () => controller.showDirectorys()),
         Padding(padding: EdgeInsets.symmetric(vertical: 10.h), child: Divider(thickness: 2.h)),
         _getUrlTextField(),
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [
-            StandardTextButton("HttpGet到本地", () => controller.getHttpFile(controller.controller.text)),
-            StandardTextButton("下载到本地", () => controller.downloadFile(controller.controller.text)),
+            gTextButton("HttpGet到本地", () => controller.getHttpFile(controller.controller.text)),
+            gTextButton("下载到本地", () => controller.downloadFile(controller.controller.text)),
           ],
         ),
         Padding(padding: EdgeInsets.symmetric(vertical: 10.h), child: Divider(thickness: 2.h)),
-        StandardTextButton("读取本地文件", () => controller.loadLocalFile(controller.controller.text)),
+        gTextButton("读取本地文件", () => controller.loadLocalFile(controller.controller.text)),
         GetBuilder<PathProviderController>(
           builder: (controller) => controller.localFile != null ? Image.file(controller.localFile as File) : const SizedBox.shrink(),
         )
@@ -45,7 +45,7 @@ class PathProviderView extends GetView<PathProviderController> {
       padding: EdgeInsets.symmetric(horizontal: 10.w),
       height: 40.h,
       width: 1.sw,
-      child: StandardTextField(controller.controller, hintText: "请输入图片下载地址"),
+      child: gTextField(controller.controller, hintText: "请输入图片下载地址"),
     );
   }
 }

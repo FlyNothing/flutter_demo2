@@ -1,6 +1,7 @@
 import 'dart:io';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_demo2/common/global/global_theme_config.dart';
 import 'package:flutter_demo2/common/util/standard_widget.dart';
 import 'package:flutter_demo2/plugin/qrcodescanner/qr_code_scanner_controller.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -14,7 +15,7 @@ class QRCodeScannerView extends GetView<QRCodeScannerController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: appBarStandard(title: '扫描二维码', backgroundColor: Colors.transparent),
+      appBar: gAppBar('扫描二维码', backgroundColor: gColorTransparent),
       body: _getBody(context),
       extendBodyBehindAppBar: true,
     );
@@ -34,7 +35,7 @@ class QRCodeScannerView extends GetView<QRCodeScannerController> {
       key: gkey,
       onQRViewCreated: controller.onQRViewCreated,
       overlay: QrScannerOverlayShape(
-        borderColor: Colors.white,
+        borderColor: gColorWhite,
         borderRadius: 0,
         borderLength: 12.w,
         borderWidth: 5.w,
@@ -83,7 +84,7 @@ class QRCodeScannerView extends GetView<QRCodeScannerController> {
         iconSize: 30.w,
         icon: Icon(
           iconData,
-          color: Colors.white,
+          color: gColorWhite,
           size: 30.w,
         ),
         onPressed: onPressed,

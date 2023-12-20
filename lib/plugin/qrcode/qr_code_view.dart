@@ -9,7 +9,7 @@ class QrFlutterView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: appBarStandard(title: 'QRCode测试'),
+      appBar: gAppBar('QRCode测试'),
       body: _getBody(context),
     );
   }

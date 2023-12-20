@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:flutter_demo2/common/global/global_theme_config.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
 
 void initEasyLoading() {
@@ -22,11 +22,11 @@ void initEasyLoading() {
     ..dismissOnTap = false
 
     /* 仅对 EasyLoadingStyle.custom 有效 */
-    ..indicatorColor = Colors.yellow
-    ..progressColor = Colors.yellow
-    ..backgroundColor = Colors.green
-    ..textColor = Colors.yellow
+    ..indicatorColor = gColorYellow
+    ..progressColor = gColorYellow
+    ..backgroundColor = gColorGreen
+    ..textColor = gColorYellow
 
     /* 仅对 EasyLoadingMaskType.custom 有效 */
-    ..maskColor = Colors.indigo.withOpacity(0.5);
+    ..maskColor = gColorLightPrimary.withOpacity(0.5);
 }

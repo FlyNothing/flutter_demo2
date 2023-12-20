@@ -13,7 +13,7 @@ class CarouselSliderView extends GetView<CarouselSliderController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: appBarStandard(title: '轮播图'),
+      appBar: gAppBar('轮播图'),
       body: _getBody(context),
     );
   }
@@ -91,12 +91,12 @@ class CarouselSliderView extends GetView<CarouselSliderController> {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            StandardTextButton("播放/暂停", () {
+            gTextButton("播放/暂停", () {
               controller.switchAutoPlay();
               EasyLoading.showToast(controller.isAutoPlay.value ? "开始播放" : "暂停播放", duration: const Duration(seconds: 1));
             }),
-            StandardTextButton("上一页", () => controller.controller.previousPage()),
-            StandardTextButton("下一页", () => controller.controller.nextPage()),
+            gTextButton("上一页", () => controller.controller.previousPage()),
+            gTextButton("下一页", () => controller.controller.nextPage()),
           ],
         ),
       ),
@@ -107,12 +107,12 @@ class CarouselSliderView extends GetView<CarouselSliderController> {
           children: [
             SizedBox(
               width: 0.3.sw,
-              child: StandardDropdownButtonFormField(valueMap, (dynamic value) {
+              child: gDropdownButtonFormField(valueMap, (dynamic value) {
                 selectIndex = value ?? 0;
               }),
             ),
-            StandardTextButton("动画", () => controller.controller.animateToPage(selectIndex)),
-            StandardTextButton("跳转", () => controller.controller.jumpToPage(selectIndex)),
+            gTextButton("动画", () => controller.controller.animateToPage(selectIndex)),
+            gTextButton("跳转", () => controller.controller.jumpToPage(selectIndex)),
           ],
         ),
       )

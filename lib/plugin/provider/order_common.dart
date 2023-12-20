@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_demo2/common/global/global_theme_config.dart';
 import 'package:flutter_demo2/plugin/provider/entity/order_type_enum.dart';
 
 String getPriceString(double price) {
@@ -11,4 +12,4 @@ String getPriceString(double price) {
 }
 
 Map<int, String> orderTypeTextMap = {OrderTypeEnum.income.index: "收入", OrderTypeEnum.expenditure.index: "支出"};
-Map<int, Color> orderTypeColorMap = {OrderTypeEnum.income.index: Colors.green, OrderTypeEnum.expenditure.index: Colors.red};
+Map<int, Color> orderTypeColorMap = {OrderTypeEnum.income.index: gColorGreen, OrderTypeEnum.expenditure.index: gColorRed};

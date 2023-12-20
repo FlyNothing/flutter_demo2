@@ -11,7 +11,7 @@ class PermissionHandlerView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: appBarStandard(title: 'PermissionHandler测试'),
+      appBar: gAppBar('PermissionHandler测试'),
       body: _getBody(context),
     );
   }

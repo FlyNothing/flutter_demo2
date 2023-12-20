@@ -11,7 +11,7 @@ class CachedNetworkImageView extends GetView<CachedNetworkImageController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: appBarStandard(title: 'CachedNetworkImage测试'),
+      appBar: gAppBar('CachedNetworkImage测试'),
       body: _getBody(context),
     );
   }
@@ -20,7 +20,7 @@ class CachedNetworkImageView extends GetView<CachedNetworkImageController> {
     return Column(
       children: [
         _getUrlTextField(),
-        StandardTextButton("刷新图片", () => controller.refreshImageUrl()),
+        gTextButton("刷新图片", () => controller.refreshImageUrl()),
         _getImage(),
       ],
     );
@@ -33,7 +33,7 @@ class CachedNetworkImageView extends GetView<CachedNetworkImageController> {
           imageUrl: controller.imageUrl.value,
           // imageBuilder: (context, imageProvider) => Container(
           //   decoration: BoxDecoration(
-          //     image: DecorationImage(image: imageProvider, fit: BoxFit.cover, colorFilter: const ColorFilter.mode(Colors.red, BlendMode.colorBurn)),
+          //     image: DecorationImage(image: imageProvider, fit: BoxFit.cover, colorFilter: const ColorFilter.mode(gColorRed, BlendMode.colorBurn)),
           //   ),
           // ),
           // placeholder: (context, url) => const CircularProgressIndicator(),
@@ -49,7 +49,7 @@ class CachedNetworkImageView extends GetView<CachedNetworkImageController> {
       margin: EdgeInsets.symmetric(vertical: 10.w),
       height: 40.h,
       width: 1.sw,
-      child: StandardTextField(controller.textController, hintText: "请输入图片下载地址"),
+      child: gTextField(controller.textController, hintText: "请输入图片下载地址"),
     );
   }
 }

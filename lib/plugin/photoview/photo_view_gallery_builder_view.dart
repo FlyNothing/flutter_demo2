@@ -11,7 +11,7 @@ class PhotoViewGalleryBuilderView extends GetView<ImagePickerImageController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: appBarStandard(title: 'PhotoViewGallery.builder'),
+      appBar: gAppBar('PhotoViewGallery.builder'),
       body: _getBody(context),
     );
   }
@@ -39,7 +39,7 @@ class PhotoViewGalleryBuilderView extends GetView<ImagePickerImageController> {
           alignment: Alignment.bottomCenter,
           child: Padding(
             padding: EdgeInsets.symmetric(vertical: 10.h),
-            child: StandardTextButton("相册列表", () => controller.pickMultiImage()),
+            child: gTextButton("相册列表", () => controller.pickMultiImage()),
           ),
         )
       ],

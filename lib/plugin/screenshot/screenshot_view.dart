@@ -1,5 +1,6 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_demo2/common/global/global_theme_config.dart';
 import 'package:flutter_demo2/common/util/standard_widget.dart';
 import 'package:flutter_demo2/plugin/screenshot/screenshot_controller.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -12,7 +13,7 @@ class ScreenshotView extends GetView<ScreenshotGetxController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: appBarStandard(title: 'Screenshot测试'),
+      appBar: gAppBar('Screenshot测试'),
       body: _getBody(context),
     );
   }
@@ -25,8 +26,8 @@ class ScreenshotView extends GetView<ScreenshotGetxController> {
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
-            StandardTextButton("页面部件", () => controller.controller1.capture().then((value) => _showDialog(context, value))),
-            StandardTextButton("未展示的部件", () => controller.controller2.captureFromWidget(_getContainer()).then((value) => _showDialog(context, value))),
+            gTextButton("页面部件", () => controller.controller1.capture().then((value) => _showDialog(context, value))),
+            gTextButton("未展示的部件", () => controller.controller2.captureFromWidget(_getContainer()).then((value) => _showDialog(context, value))),
           ],
         )
       ],
@@ -39,10 +40,10 @@ class ScreenshotView extends GetView<ScreenshotGetxController> {
       child: Container(
         height: 0.6.sh,
         width: double.infinity,
-        color: Colors.green,
+        color: gColorGreen,
         alignment: Alignment.center,
         child: Container(
-          color: Colors.purple,
+          color: gColorPurple,
           height: 0.4.sh,
           width: 0.6.sw,
           alignment: Alignment.center,
@@ -58,10 +59,10 @@ class ScreenshotView extends GetView<ScreenshotGetxController> {
       child: Container(
         height: 0.6.sh,
         width: double.infinity,
-        color: Colors.red,
+        color: gColorRed,
         alignment: Alignment.center,
         child: Container(
-          color: Colors.yellow,
+          color: gColorYellow,
           height: 0.4.sh,
           width: 0.6.sw,
           alignment: Alignment.center,
@@ -78,7 +79,7 @@ class ScreenshotView extends GetView<ScreenshotGetxController> {
           ? Container(
               height: 0.6.sh,
               width: double.infinity,
-              color: Colors.white,
+              color: gColorWhite,
               alignment: Alignment.center,
               child: const Text("未抓取到截图"),
             )

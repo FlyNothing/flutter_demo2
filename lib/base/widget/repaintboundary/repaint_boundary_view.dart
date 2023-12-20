@@ -5,6 +5,7 @@ import 'dart:ui' as ui;
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
+import 'package:flutter_demo2/common/global/global_theme_config.dart';
 import 'package:flutter_demo2/common/util/standard_widget.dart';
 import 'package:flutter_demo2/common/util/text_style.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -18,7 +19,7 @@ class RepaintBoundaryView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: appBarStandard(title: "RepaintBoundary截图"),
+      appBar: gAppBar("RepaintBoundary截图"),
       body: _getBody(context),
     );
   }
@@ -31,8 +32,8 @@ class RepaintBoundaryView extends StatelessWidget {
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
-            StandardTextButton("截图文本", () => _capture(context, _textKey)),
-            StandardTextButton("截图图片", () => _capture(context, _picKey)),
+            gTextButton("截图文本", () => _capture(context, _textKey)),
+            gTextButton("截图图片", () => _capture(context, _picKey)),
           ],
         )
       ],
@@ -44,7 +45,7 @@ class RepaintBoundaryView extends StatelessWidget {
       height: 0.4.sh,
       width: 0.8.sw,
       decoration: BoxDecoration(
-        color: Colors.lightGreen,
+        color: gColorGreen,
         border: Border.all(width: 1),
       ),
       child: Column(
@@ -52,15 +53,15 @@ class RepaintBoundaryView extends StatelessWidget {
         children: [
           Text(
             "测试文本1",
-            style: size14W400(color: Colors.green),
+            style: size14W400(color: gColorBlue),
           ),
           Text(
             "测试文本2",
-            style: size14W400(color: Colors.pink),
+            style: size14W400(color: gColorOrange),
           ),
           Text(
             "测试文本3",
-            style: size14W400(color: Colors.orange),
+            style: size14W400(color: gColorRed),
           )
         ],
       ),

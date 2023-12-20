@@ -11,7 +11,7 @@ class BaseMenuView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: appBarStandard(title: _title),
+      appBar: gAppBar(_title),
       body: _getBody(),
     );
   }
@@ -20,7 +20,7 @@ class BaseMenuView extends StatelessWidget {
     return ListView.builder(
       itemBuilder: (context, index) => ListTile(
         leading: Text(_baseMenuList[index].name),
-        trailing: StandardIconButton(
+        trailing: gIconButton(
           Icons.navigate_next,
           () => Get.to(_baseMenuList[index].page, binding: _baseMenuList[index].binding, preventDuplicates: false),
         ),

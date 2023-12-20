@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_demo2/base/navigator/2.0/router/listview_view.dart';
 import 'package:flutter_demo2/base/navigator/2.0/router/listitem_route_information_parser.dart';
 import 'package:flutter_demo2/base/navigator/2.0/router/listitem_router_delegate.dart';
+import 'package:flutter_demo2/common/global/global_theme_config.dart';
 
 class ListitemNavigatorRouterApp extends StatelessWidget {
   const ListitemNavigatorRouterApp({super.key});
@@ -11,7 +12,7 @@ class ListitemNavigatorRouterApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false, // 去掉右上角debug贴纸
       theme: ThemeData(
-        primarySwatch: Colors.indigo,
+        primarySwatch: gColorLightPrimary,
       ),
       home: Router(
         routerDelegate: ListitemRouterDelegate(),

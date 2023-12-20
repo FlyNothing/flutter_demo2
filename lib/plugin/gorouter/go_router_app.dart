@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_demo2/common/global/global_theme_config.dart';
 import 'package:flutter_demo2/plugin/gorouter/go_router_table.dart';
 
 class GoRouterApp extends StatelessWidget {
@@ -9,7 +10,7 @@ class GoRouterApp extends StatelessWidget {
     return MaterialApp.router(
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        primarySwatch: Colors.indigo,
+        primarySwatch: gColorLightPrimary,
       ),
       routerConfig: goRouter,
     );

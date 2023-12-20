@@ -1,6 +1,7 @@
 // ignore_for_file: depend_on_referenced_packages
 
 import 'package:flutter/material.dart';
+import 'package:flutter_demo2/common/global/global_theme_config.dart';
 import 'package:flutter_demo2/common/util/standard_widget.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -12,7 +13,7 @@ class FlutterSvgView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: appBarStandard(title: 'SVG'),
+      appBar: gAppBar('SVG'),
       body: _getBody(context),
     );
   }
@@ -27,7 +28,7 @@ class FlutterSvgView extends StatelessWidget {
         ),
         SvgPicture.asset(
           "assets/images/ubuntu.svg",
-          colorFilter: const ColorFilter.mode(Colors.indigo, BlendMode.darken),
+          colorFilter: const ColorFilter.mode(gColorLightPrimary, BlendMode.darken),
         ),
         const SvgPicture(
           AssetBytesLoader("assets/images/ubuntu.svg.vec"),
@@ -38,7 +39,7 @@ class FlutterSvgView extends StatelessWidget {
         ),
         SvgPicture.asset(
           "assets/images/debian.svg",
-          colorFilter: const ColorFilter.mode(Colors.indigo, BlendMode.darken),
+          colorFilter: const ColorFilter.mode(gColorLightPrimary, BlendMode.darken),
         ),
         SvgPicture.network(
           "https://dev.w3.org/SVG/tools/svgweb/samples/svg-files/USStates.svg",

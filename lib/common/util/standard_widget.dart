@@ -1,66 +1,25 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_demo2/common/util/text_style.dart';
 
 /// 标准APP BAR
-AppBar appBarStandard({required String title, Color? backgroundColor, List<Widget>? actions, bool? centerTitle}) {
-  return AppBar(
-    centerTitle: centerTitle ?? true,
-    elevation: 0, // 取消阴影
-    backgroundColor: backgroundColor,
-    title: Text(
-      title,
-      textAlign: TextAlign.center,
-      style: size18W600(color: Colors.white),
-    ),
-    actions: actions,
-  );
-}
+AppBar gAppBar(String title, {Color? backgroundColor, List<Widget>? actions}) => AppBar(
+      backgroundColor: backgroundColor,
+      title: Text(title, textAlign: TextAlign.center),
+      actions: actions,
+    );
 
 /// 标准文本按钮
 ///
 /// text: 文本内容[必须]
 ///
 /// onPressed: 按钮执行函数[必须]
-class StandardTextButton extends StatelessWidget {
-  const StandardTextButton(this.text, this.onPressed, {Key? key}) : super(key: key);
-  final String text;
-  final Function()? onPressed;
-
-  @override
-  Widget build(BuildContext context) {
-    return TextButton(
-      style: ButtonStyle(
-        padding: MaterialStateProperty.all(EdgeInsets.zero),
-        overlayColor: MaterialStateProperty.all(Colors.indigo),
-      ),
-      onPressed: onPressed,
-      child: Text(text, style: size14W400(color: Colors.white)),
-    );
-  }
-}
+TextButton gTextButton(String text, Function() onPressed) => TextButton(onPressed: onPressed, child: Text(text));
 
 /// 标准图标按钮
 ///
 /// icon: 图标[必须]
 ///
 /// onPressed: 按钮执行函数[必须]
-class StandardIconButton extends StatelessWidget {
-  const StandardIconButton(this.icon, this.onPressed, {this.color, Key? key}) : super(key: key);
-  final IconData? icon;
-  final Function()? onPressed;
-  final Color? color;
-
-  @override
-  Widget build(BuildContext context) {
-    return IconButton(
-      onPressed: onPressed,
-      icon: Icon(
-        icon,
-        color: color ?? Colors.black.withOpacity(0.2),
-      ),
-    );
-  }
-}
+IconButton gIconButton(IconData icon, Function() onPressed, {Color? color}) => IconButton(onPressed: onPressed, icon: Icon(icon));
 
 /// 标准文本框
 ///
@@ -69,25 +28,7 @@ class StandardIconButton extends StatelessWidget {
 /// hintText: 默认文本[可选]
 ///
 /// keyboardType: 键盘方式[可选]
-class StandardTextField extends StatelessWidget {
-  const StandardTextField(this.controller, {this.hintText, this.keyboardType, Key? key}) : super(key: key);
-  final TextEditingController? controller;
-  final String? hintText;
-  final TextInputType? keyboardType;
-
-  @override
-  Widget build(BuildContext context) {
-    return TextField(
-      decoration: InputDecoration(
-        // 内容边距设置为0
-        contentPadding: const EdgeInsets.symmetric(vertical: 0),
-        hintText: hintText,
-        // 设置填充颜色
-        fillColor: Colors.grey[100],
-        filled: true,
-        // 边框
-        border: const OutlineInputBorder(borderSide: BorderSide(width: 1)),
-      ),
+TextField gTextField(TextEditingController controller, {String? hintText, TextInputType? keyboardType}) => TextField(
       keyboardType: keyboardType,
       // 文本垂直居中
       textAlignVertical: TextAlignVertical.center,
@@ -95,44 +36,26 @@ class StandardTextField extends StatelessWidget {
       textAlign: TextAlign.center,
       controller: controller,
     );
-  }
-}
 
 /// 标准下拉框
 ///
 /// valueMap: 下拉框数据及显示值链表[必须]
 ///
 /// onChanged: 数据变化时执行的函数[必须]
-class StandardDropdownButtonFormField extends StatelessWidget {
-  const StandardDropdownButtonFormField(this.valueMap, this.onChanged, {Key? key}) : super(key: key);
-  final Map<int, String> valueMap;
-  final void Function(dynamic)? onChanged;
-
-  @override
-  Widget build(BuildContext context) {
-    List<MapEntry<int, String>> entryList = List.from(valueMap.entries);
-    return DropdownButtonFormField(
-      isExpanded: true,
-      decoration: InputDecoration(
-        // 内容边距设置为0
-        contentPadding: const EdgeInsets.all(0),
-        // 设置填充颜色
-        fillColor: Colors.grey[100],
-        filled: true,
-        // 边框
-        border: const OutlineInputBorder(borderSide: BorderSide(width: 1)),
+DropdownButtonFormField gDropdownButtonFormField(Map<int, String> valueMap, void Function(dynamic) onChanged) {
+  List<MapEntry<int, String>> entryList = List.from(valueMap.entries);
+  return DropdownButtonFormField(
+    isExpanded: true,
+    alignment: Alignment.center,
+    value: entryList[0].key,
+    items: List.generate(
+      entryList.length,
+      (index) => DropdownMenuItem(
+        alignment: AlignmentDirectional.center,
+        value: entryList[index].key,
+        child: Text(entryList[index].value),
       ),
-      alignment: Alignment.center,
-      value: entryList[0].key,
-      items: List.generate(
-        entryList.length,
-        (index) => DropdownMenuItem(
-          alignment: AlignmentDirectional.center,
-          value: entryList[index].key,
-          child: Text(entryList[index].value),
-        ),
-      ),
-      onChanged: onChanged,
-    );
-  }
+    ),
+    onChanged: onChanged,
+  );
 }

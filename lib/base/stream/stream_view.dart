@@ -7,7 +7,7 @@ class StreamView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: appBarStandard(title: 'Stream测试'),
+      appBar: gAppBar('Stream测试'),
       body: _getBody(context),
     );
   }

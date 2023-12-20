@@ -11,7 +11,7 @@ class StackGridviewView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: appBarStandard(title: 'Stack和Gridview测试'),
+      appBar: gAppBar('Stack和Gridview测试'),
       body: _getBody(context),
     );
   }

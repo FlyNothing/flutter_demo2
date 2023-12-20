@@ -1,16 +1,17 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_demo2/common/global/global_theme_config.dart';
 import 'package:flutter_demo2/common/util/standard_widget.dart';
 import 'package:flutter_demo2/common/util/text_style.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class BoxFitView extends StatelessWidget {
   const BoxFitView({super.key});
-  static final Color _color = Colors.black.withOpacity(0.7);
+  static const Color _color = gColorBlack54;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: appBarStandard(title: 'BoxFit模式'),
+      appBar: gAppBar('BoxFit模式'),
       body: _getBody(context),
     );
   }
@@ -27,7 +28,7 @@ class BoxFitView extends StatelessWidget {
       res.add(getImage("assets/images/image1_vertical.jpg", fit: boxFit));
       res.add(getImage("assets/images/image2.jpg", fit: boxFit));
       res.add(getImage("assets/images/image2_vertical.jpg", fit: boxFit));
-      res.add(Divider(color: _color, thickness: 1));
+      res.add(const Divider(color: _color, thickness: 1));
     }
     return res;
   }

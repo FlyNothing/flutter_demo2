@@ -9,7 +9,7 @@ class NavigationBarHiddenView extends GetView<NavigationBarHiddenController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: appBarStandard(title: "NavigationBar测试"),
+      appBar: gAppBar("NavigationBar测试"),
       body: _getBody(),
     );
   }
@@ -17,7 +17,7 @@ class NavigationBarHiddenView extends GetView<NavigationBarHiddenController> {
   Widget _getBody() {
     return Obx(
       () => Center(
-        child: StandardTextButton(
+        child: gTextButton(
           controller.visible.value ? "HideBar" : "ShowBar",
           () => controller.switchVisible(),
         ),

@@ -8,7 +8,7 @@ class ScreenutilHomeView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: appBarStandard(title: 'ScreenutilHomePage'),
+      appBar: gAppBar('ScreenutilHomePage'),
       body: Align(
         alignment: Alignment.center,
         child: Column(

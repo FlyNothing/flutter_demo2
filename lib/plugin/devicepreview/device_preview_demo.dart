@@ -15,7 +15,7 @@ getDevicePreview() {
     defaultDevice: Devices.ios.iPhone13,
     tools: const [...DevicePreview.defaultTools],
     // storage: DevicePreviewStorage.none(),
-    // backgroundColor: Colors.red,
+    // backgroundColor: gColorRed,
     builder: (context) => const App(),
   );
 }

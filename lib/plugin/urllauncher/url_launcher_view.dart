@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_demo2/common/global/global_theme_config.dart';
 import 'package:flutter_demo2/common/util/standard_widget.dart';
 import 'package:flutter_demo2/common/util/text_style.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -10,7 +11,7 @@ class UrlLauncherView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: appBarStandard(title: 'UrlLauncher测试'),
+      appBar: gAppBar('UrlLauncher测试'),
       body: _getBody(context),
     );
   }
@@ -20,7 +21,7 @@ class UrlLauncherView extends StatelessWidget {
       children: [
         Row(
           children: [
-            _getText("https://docs.flutter.dev/get-started/install", color: Colors.indigo),
+            _getText("https://docs.flutter.dev/get-started/install", color: gColorLightPrimary),
             _getButton(
               Icons.navigate_next,
               () => _launchURL(
@@ -31,7 +32,7 @@ class UrlLauncherView extends StatelessWidget {
         ),
         Row(
           children: [
-            _getText("https://docs.flutter.dev/development/ui/layout#constraints", color: Colors.indigo),
+            _getText("https://docs.flutter.dev/development/ui/layout#constraints", color: gColorLightPrimary),
             _getButton(
               Icons.navigate_next,
               () => _launchURL(
@@ -42,7 +43,7 @@ class UrlLauncherView extends StatelessWidget {
         ),
         Row(
           children: [
-            _getText("https://www.dartpad.cn/?id=e66e420f2f0201c772f73819711bf290", color: Colors.indigo),
+            _getText("https://www.dartpad.cn/?id=e66e420f2f0201c772f73819711bf290", color: gColorLightPrimary),
             _getButton(
               Icons.navigate_next,
               () => _launchURL(
@@ -53,7 +54,7 @@ class UrlLauncherView extends StatelessWidget {
         ),
         Row(
           children: [
-            _getText("mailto:123456789@qq.com?subject=test&body=thisisatest", color: Colors.red),
+            _getText("mailto:123456789@qq.com?subject=test&body=thisisatest", color: gColorRed),
             _getButton(
               Icons.navigate_next,
               () => _launchURL(
@@ -64,7 +65,7 @@ class UrlLauncherView extends StatelessWidget {
         ),
         Row(
           children: [
-            _getText("https://www.dartpad.cn/?id=e66e420f2f0201c772f73819711bf290", color: Colors.indigo),
+            _getText("https://www.dartpad.cn/?id=e66e420f2f0201c772f73819711bf290", color: gColorLightPrimary),
             _getButton(
               Icons.navigate_next,
               () => _launchURL(
@@ -75,7 +76,7 @@ class UrlLauncherView extends StatelessWidget {
         ),
         Row(
           children: [
-            _getText("https://www.dartpad.cn/?id=e66e420f2f0201c772f73819711bf290", color: Colors.indigo),
+            _getText("https://www.dartpad.cn/?id=e66e420f2f0201c772f73819711bf290", color: gColorLightPrimary),
             _getButton(
               Icons.navigate_next,
               () => _launchURL(Uri.parse('https://www.dartpad.cn/?id=e66e420f2f0201c772f73819711bf290')),
@@ -96,10 +97,10 @@ class UrlLauncherView extends StatelessWidget {
     );
   }
 
-  Widget _getButton(IconData? icon, Function()? onPressed) {
+  Widget _getButton(IconData icon, Function() onPressed) {
     return SizedBox(
       width: 0.1.sw,
-      child: StandardIconButton(icon, onPressed),
+      child: gIconButton(icon, onPressed),
     );
   }
 

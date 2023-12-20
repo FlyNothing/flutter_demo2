@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_demo2/common/global/global_theme_config.dart';
 import 'package:flutter_demo2/common/util/text_style.dart';
 import 'package:flutter_demo2/plugin/permissionhandler/permission_controller.dart';
 import 'package:get/get.dart';
@@ -12,13 +13,13 @@ class PermissionWidget extends GetView<PermissionController> {
   Color getPermissionColor() {
     String value = controller.map[_permission.value] ?? "";
     if (value == PermissionStatus.denied.name) {
-      return Colors.red;
+      return gColorRed;
     } else if (value == PermissionStatus.granted.name) {
-      return Colors.green;
+      return gColorGreen;
     } else if (value == PermissionStatus.limited.name) {
-      return Colors.orange;
+      return gColorOrange;
     } else {
-      return Colors.grey;
+      return gColorGrey;
     }
   }
 
@@ -34,7 +35,7 @@ class PermissionWidget extends GetView<PermissionController> {
       ),
       trailing: (_permission is PermissionWithService)
           ? IconButton(
-              icon: const Icon(Icons.info, color: Colors.orange),
+              icon: const Icon(Icons.info, color: gColorOrange),
               onPressed: () => checkServiceStatus(context, _permission as PermissionWithService),
             )
           : null,

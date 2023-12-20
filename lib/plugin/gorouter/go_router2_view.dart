@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_demo2/common/global/global_theme_config.dart';
 import 'package:flutter_demo2/common/util/standard_widget.dart';
 import 'package:flutter_demo2/common/util/text_style.dart';
 import 'package:go_router/go_router.dart';
@@ -9,7 +10,7 @@ class GoRouter2View extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: appBarStandard(title: '路由跳转2'),
+      appBar: gAppBar('路由跳转2'),
       body: _getBody(context),
     );
   }
@@ -19,8 +20,8 @@ class GoRouter2View extends StatelessWidget {
       child: Center(
         child: Container(
           alignment: Alignment.center,
-          decoration: BoxDecoration(border: Border.all(width: 1, color: Colors.indigo)),
-          child: Text("Router2.", textAlign: TextAlign.center, style: size16W500(color: Colors.indigo)),
+          decoration: BoxDecoration(border: Border.all(width: 1, color: gColorLightPrimary)),
+          child: Text("Router2.", textAlign: TextAlign.center, style: size16W500(color: gColorLightPrimary)),
         ),
       ),
       onTap: () => context.pop(),

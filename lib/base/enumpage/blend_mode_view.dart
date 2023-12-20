@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_demo2/common/global/global_theme_config.dart';
 import 'package:flutter_demo2/common/util/standard_widget.dart';
 import 'package:flutter_demo2/common/util/text_style.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -9,7 +10,7 @@ class BlendModeView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: appBarStandard(title: 'BlendMode模式'),
+      appBar: gAppBar('BlendMode模式'),
       body: _getBody(context),
     );
   }
@@ -32,13 +33,13 @@ class BlendModeView extends StatelessWidget {
           Image.asset(
             "assets/images/avatar.png", // 目标图片
             opacity: const AlwaysStoppedAnimation(0.7),
-            color: Colors.red.withOpacity(0.7), // 源图片
+            color: gColorRed, // 源图片
             fit: BoxFit.cover,
             colorBlendMode: colorBlendMode,
           ),
           Align(
             alignment: Alignment.topCenter,
-            child: Text(colorBlendMode.toString(), style: size12W400(color: Colors.black)),
+            child: Text(colorBlendMode.toString(), style: size12W400()),
           )
         ],
       ),
