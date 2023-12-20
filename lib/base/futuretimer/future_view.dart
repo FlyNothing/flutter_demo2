@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_demo2/base/futuretimer/future_controller.dart';
 import 'package:flutter_demo2/common/util/standard_widget.dart';
+import 'package:get/get.dart';
 
-class FutureView extends StatelessWidget {
+class FutureView extends GetView<FutureController> {
   const FutureView({super.key});
 
   @override
@@ -14,17 +16,13 @@ class FutureView extends StatelessWidget {
 
   Widget _getBody(BuildContext context) {
     return Center(
-      child: FutureBuilder(
+      child: FutureBuilder<String>(
         builder: (context, AsyncSnapshot<String> snapshot) {
-          return Text(snapshot.data ?? "");
+          return Text(snapshot.data ?? "get data failed");
         },
         initialData: "init data",
-        future: _getData(),
+        future: controller.getRaw('https://www.baidu.com'),
       ),
     );
-  }
-
-  Future<String> _getData() {
-    return Future.delayed(const Duration(milliseconds: 1000), () => Future.value("get data success."));
   }
 }
